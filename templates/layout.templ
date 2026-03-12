@@ -22,6 +22,9 @@ templ Base(cfg config.SiteConfig, title string, description string, path string)
 		<meta name="twitter:title" content={ title }/>
 		<meta name="twitter:description" content={ description }/>
 		<meta name="twitter:image" content={ cfg.Business.URL + "/static/images/333338014_752212066181811_2060860814604542921_n-1920w.jpg" }/>
+		if path == "/" {
+			<link rel="preload" as="image" href="/static/images/333338014_752212066181811_2060860814604542921_n-1920w.jpg"/>
+		}
 		<link rel="preconnect" href="https://fonts.googleapis.com"/>
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Barlow:wght@300;400;500&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet"/>

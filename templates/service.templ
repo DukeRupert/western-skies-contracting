@@ -83,7 +83,7 @@ templ ServiceDetails(page config.ServicePageConfig) {
 									}
 								</div>
 								<div class="detail-row-image">
-									<img src={ "/static/images/" + s.Image } alt={ s.Name } width="640" height="400"/>
+									<img src={ "/static/images/" + s.Image } alt={ s.Name } width="640" height="400" loading="lazy"/>
 								</div>
 							</div>
 						} else {
@@ -100,7 +100,7 @@ templ ServiceDetails(page config.ServicePageConfig) {
 									}
 								</div>
 								<div class="detail-row-image">
-									<img src={ "/static/images/" + s.Image } alt={ s.Name } width="640" height="400"/>
+									<img src={ "/static/images/" + s.Image } alt={ s.Name } width="640" height="400" loading="lazy"/>
 								</div>
 							</div>
 						}
@@ -133,7 +133,7 @@ templ ServiceMaterials(page config.ServicePageConfig) {
 					<div class="material-card">
 						if m.Image != "" {
 							<div class="material-card-image">
-								<img src={ "/static/images/" + m.Image } alt={ m.Name } width="480" height="320"/>
+								<img src={ "/static/images/" + m.Image } alt={ m.Name } width="480" height="320" loading="lazy"/>
 							</div>
 						}
 						<h3>{ m.Name }</h3>
@@ -164,7 +164,7 @@ templ ServiceNote(page config.ServicePageConfig) {
 						<p>{ page.Note.Copy }</p>
 					</div>
 					<div class="detail-row-image">
-						<img src={ "/static/images/" + page.Note.Image } alt={ page.Note.Heading } width="640" height="400"/>
+						<img src={ "/static/images/" + page.Note.Image } alt={ page.Note.Heading } width="640" height="400" loading="lazy"/>
 					</div>
 				</div>
 			} else {

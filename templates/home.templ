@@ -78,7 +78,7 @@ templ AboutSection(cfg config.SiteConfig) {
 					</div>
 				</div>
 				<div class="about-image">
-					<img src="/static/images/team.jpg" alt="The Western Skies Contracting crew" width="800" height="1000"/>
+					<img src="/static/images/team.jpg" alt="The Western Skies Contracting crew" width="800" height="1000" loading="lazy"/>
 				</div>
 			</div>
 		</div>
@@ -112,7 +112,7 @@ templ ServicesSection(cfg config.SiteConfig) {
 			<div class="services-grid">
 				for _, s := range cfg.Services {
 					<div class="service-card">
-						<img src={ "/static/images/" + s.Image } alt={ s.Headline } width="800" height="500"/>
+						<img src={ "/static/images/" + s.Image } alt={ s.Headline } width="800" height="500" loading="lazy"/>
 						<div class="service-card-overlay"></div>
 						<div class="service-card-content">
 							<h3>{ s.Name }</h3>
