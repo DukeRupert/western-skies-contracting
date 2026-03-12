@@ -402,6 +402,12 @@ a {
     line-height: 24px;
   }
 
+  .nav-links .nav-cta {
+    padding: 12px 24px;
+    text-align: center;
+    margin-top: 8px;
+  }
+
   .nav-links.active {
     display: flex;
   }
