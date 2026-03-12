@@ -92,6 +92,41 @@ a {
   text-decoration: none;
 }
 
+/* ── Skip Link ── */
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 200;
+  padding: 12px 24px;
+  background: var(--color-sunburst);
+  color: var(--color-ink);
+  font-family: var(--font-ui);
+  font-size: var(--text-btn);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 8px;
+}
+
+/* ── Reduced Motion ── */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 /* ── Section Eyebrow ── */
 
 .section-eyebrow {

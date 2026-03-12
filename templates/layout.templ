@@ -61,8 +61,11 @@ templ Base(cfg config.SiteConfig, title string, description string, path string)
 		</script>
 	</head>
 	<body>
+		<a href="#main-content" class="skip-link">Skip to content</a>
 		@Nav(cfg)
-		{ children... }
+		<main id="main-content">
+			{ children... }
+		</main>
 		@Footer(cfg)
 	</body>
 	</html>
