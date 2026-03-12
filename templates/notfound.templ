@@ -1,0 +1,17 @@
+package templates
+
+import "github.com/fireflymt/western-skies/internal/config"
+
+templ NotFound(cfg config.SiteConfig) {
+	@Base(cfg, "Page Not Found | " + cfg.Business.Name, "") {
+		<section class="section has-grain" style="padding-top: calc(var(--nav-height) + var(--section-y)); min-height: 60vh; display: flex; align-items: center;">
+			<div class="section-inner">
+				<h1>That page doesn't exist.</h1>
+				<p style="margin-top: 16px; max-width: 480px;">
+					You can head back to the <a href="/" style="color: var(--color-granite); text-decoration: underline;">home page</a> or call us directly at
+					<a href="tel:4065461018" style="color: var(--color-granite); text-decoration: underline;">406-546-1018</a>.
+				</p>
+			</div>
+		</section>
+	}
+}

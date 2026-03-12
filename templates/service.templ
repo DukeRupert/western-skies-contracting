@@ -1,0 +1,257 @@
+package templates
+
+import (
+	"github.com/fireflymt/western-skies/internal/config"
+	"strings"
+)
+
+templ ServicePage(cfg config.SiteConfig, page config.ServicePageConfig) {
+	@Base(cfg, page.SEO.Title, page.SEO.Description) {
+		@ServiceHero(page)
+		<div class="accent-rule"></div>
+		@ServiceLead(page)
+		@ServiceDetails(page)
+		if page.Materials.Intro != "" {
+			@ServiceMaterials(page)
+		}
+		if page.Pricing.Copy != "" {
+			@ServicePricing(page)
+		}
+		if page.Note.Copy != "" {
+			@ServiceNote(page)
+		}
+		if len(page.Testimonials) > 0 {
+			@ServiceTestimonials(page)
+		}
+		@ServiceCTA(cfg, page)
+		if len(page.Suppliers) > 0 {
+			@ServiceSuppliers(page)
+		}
+	}
+}
+
+templ ServiceHero(page config.ServicePageConfig) {
+	if page.Header.HeroImage != "" {
+		<section class="service-hero service-hero--photo">
+			<div class="hero-bg">
+				<img src={ "/static/images/" + page.Header.HeroImage } alt={ page.Header.H1 } width="1920" height="1080"/>
+			</div>
+			<div class="section-inner" style="position: relative; z-index: 1;">
+				<div class="section-eyebrow--light section-eyebrow">{ page.Header.Eyebrow }</div>
+				<h1>{ page.Header.H1 }</h1>
+			</div>
+		</section>
+	} else {
+		<section class="service-hero section section--dark dark">
+			<div class="section-inner">
+				<div class="section-eyebrow">{ page.Header.Eyebrow }</div>
+				<h1>{ page.Header.H1 }</h1>
+			</div>
+		</section>
+	}
+}
+
+templ ServiceLead(page config.ServicePageConfig) {
+	<section class="section has-grain">
+		<div class="section-inner service-prose">
+			for _, p := range page.Lead {
+				<p class="lead-text">{ p.Text }</p>
+			}
+		</div>
+	</section>
+}
+
+templ ServiceDetails(page config.ServicePageConfig) {
+	if len(page.Services) > 0 {
+		<section class="section section--white">
+			<div class="section-inner">
+				<div class="section-eyebrow">What We Do</div>
+				for i, s := range page.Services {
+					if s.Image != "" {
+						if i % 2 == 0 {
+							<div class="detail-row">
+								<div class="detail-row-text">
+									<h2>{ s.Name }</h2>
+									<p>{ s.Copy }</p>
+									if len(s.Items) > 0 {
+										<ul class="detail-list">
+											for _, item := range s.Items {
+												<li>{ item }</li>
+											}
+										</ul>
+									}
+								</div>
+								<div class="detail-row-image">
+									<img src={ "/static/images/" + s.Image } alt={ s.Name } width="640" height="400"/>
+								</div>
+							</div>
+						} else {
+							<div class="detail-row detail-row--reverse">
+								<div class="detail-row-text">
+									<h2>{ s.Name }</h2>
+									<p>{ s.Copy }</p>
+									if len(s.Items) > 0 {
+										<ul class="detail-list">
+											for _, item := range s.Items {
+												<li>{ item }</li>
+											}
+										</ul>
+									}
+								</div>
+								<div class="detail-row-image">
+									<img src={ "/static/images/" + s.Image } alt={ s.Name } width="640" height="400"/>
+								</div>
+							</div>
+						}
+					} else {
+						<div class="service-detail-card">
+							<h2>{ s.Name }</h2>
+							<p>{ s.Copy }</p>
+							if len(s.Items) > 0 {
+								<ul class="detail-list">
+									for _, item := range s.Items {
+										<li>{ item }</li>
+									}
+								</ul>
+							}
+						</div>
+					}
+				}
+			</div>
+		</section>
+	}
+}
+
+templ ServiceMaterials(page config.ServicePageConfig) {
+	<section class="section has-grain">
+		<div class="section-inner">
+			<div class="section-eyebrow">Materials</div>
+			<p class="service-prose-intro">{ page.Materials.Intro }</p>
+			<div class="materials-grid">
+				for _, m := range page.Materials.Items {
+					<div class="material-card">
+						if m.Image != "" {
+							<div class="material-card-image">
+								<img src={ "/static/images/" + m.Image } alt={ m.Name } width="480" height="320"/>
+							</div>
+						}
+						<h3>{ m.Name }</h3>
+						<p>{ m.Copy }</p>
+					</div>
+				}
+			</div>
+		</div>
+	</section>
+}
+
+templ ServicePricing(page config.ServicePageConfig) {
+	<section class="section section--dark dark">
+		<div class="section-inner">
+			<div class="section-eyebrow">Pricing</div>
+			<p class="pricing-copy">{ page.Pricing.Copy }</p>
+		</div>
+	</section>
+}
+
+templ ServiceNote(page config.ServicePageConfig) {
+	<section class="section has-grain">
+		<div class="section-inner">
+			if page.Note.Image != "" {
+				<div class="detail-row">
+					<div class="detail-row-text">
+						<h2>{ page.Note.Heading }</h2>
+						<p>{ page.Note.Copy }</p>
+					</div>
+					<div class="detail-row-image">
+						<img src={ "/static/images/" + page.Note.Image } alt={ page.Note.Heading } width="640" height="400"/>
+					</div>
+				</div>
+			} else {
+				<div class="service-prose">
+					<h2>{ page.Note.Heading }</h2>
+					<p>{ page.Note.Copy }</p>
+				</div>
+			}
+		</div>
+	</section>
+}
+
+templ ServiceTestimonials(page config.ServicePageConfig) {
+	<section class="section section--white">
+		<div class="section-inner">
+			<div class="section-eyebrow">What Neighbors Say</div>
+			<div class="testimonials-grid">
+				for _, t := range page.Testimonials {
+					<div class="testimonial-card">
+						<blockquote>
+							"{ t.Quote }"
+						</blockquote>
+						<cite>— { t.Author }</cite>
+					</div>
+				}
+			</div>
+		</div>
+	</section>
+}
+
+templ ServiceCTA(cfg config.SiteConfig, page config.ServicePageConfig) {
+	<section class="section section--dark dark">
+		<div class="section-inner">
+			<div class="section-eyebrow">Get in Touch</div>
+			<h2>{ page.CTA.Heading }</h2>
+			<p style="margin-top: 16px; margin-bottom: 48px; max-width: 580px;">{ page.CTA.Copy }</p>
+			<div class="cta-grid">
+				<div>
+					for _, phone := range cfg.Phones {
+						<div class="contact-detail">
+							<div class="contact-detail-label" style="color: var(--color-sunburst);">{ phone.Label }</div>
+							<div class="contact-detail-value" style="color: var(--color-white);">
+								{ phone.Name } &mdash;
+								<a href={ templ.SafeURL("tel:" + strings.ReplaceAll(phone.Number, "-", "")) } style="color: var(--color-sunburst);">{ phone.Number }</a>
+							</div>
+						</div>
+					}
+					<div class="contact-hours" style="border-color: rgba(255,255,255,0.08);">
+						<div class="contact-detail-label" style="color: var(--color-sunburst);">Hours</div>
+						<div class="contact-detail-value" style="color: var(--color-white);">{ cfg.Business.Hours.Weekdays }</div>
+					</div>
+				</div>
+				<form class="contact-form" action="#" method="post">
+					<div class="form-field">
+						<label for="name" style="color: var(--color-sunburst);">Name</label>
+						<input type="text" id="name" name="name" required/>
+					</div>
+					<div class="form-field">
+						<label for="phone" style="color: var(--color-sunburst);">Phone</label>
+						<input type="tel" id="phone" name="phone"/>
+					</div>
+					<div class="form-field">
+						<label for="email" style="color: var(--color-sunburst);">Email</label>
+						<input type="email" id="email" name="email"/>
+					</div>
+					<div class="form-field">
+						<label for="message" style="color: var(--color-sunburst);">Tell us about your project</label>
+						<textarea id="message" name="message" rows="5"></textarea>
+					</div>
+					<button type="submit" class="btn-primary btn-primary--light">{ page.CTA.Button }</button>
+				</form>
+			</div>
+		</div>
+	</section>
+}
+
+templ ServiceSuppliers(page config.ServicePageConfig) {
+	<section class="section has-grain">
+		<div class="section-inner">
+			<div class="section-eyebrow">Suppliers We Work With</div>
+			<p class="service-prose-intro">These are the suppliers we regularly work with. If you want to browse material options before we talk, these are good starting points.</p>
+			<ul class="supplier-list">
+				for _, s := range page.Suppliers {
+					<li>
+						<a href={ templ.SafeURL(s.URL) } target="_blank" rel="noopener">{ s.Name }</a>
+					</li>
+				}
+			</ul>
+		</div>
+	</section>
+}

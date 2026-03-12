@@ -1,0 +1,91 @@
+package templates
+
+import "github.com/fireflymt/western-skies/internal/config"
+
+templ Base(cfg config.SiteConfig, title string, description string) {
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>{ title }</title>
+		<meta name="description" content={ description }/>
+		<link rel="preconnect" href="https://fonts.googleapis.com"/>
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Barlow:wght@300;400;500&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet"/>
+		<link rel="stylesheet" href="/static/css/tokens.css"/>
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "LocalBusiness",
+			"name": "Western Skies Contracting",
+			"description": "Owner-operated contractor serving the Bitterroot Valley. Roofing, framing, siding, and fencing.",
+			"url": "https://www.westernskiescontractingmt.com",
+			"telephone": "+14065461018",
+			"address": {
+				"@type": "PostalAddress",
+				"addressLocality": "Hamilton",
+				"addressRegion": "MT",
+				"addressCountry": "US"
+			},
+			"geo": {
+				"@type": "GeoCoordinates",
+				"latitude": 46.2527,
+				"longitude": -114.1580
+			},
+			"openingHours": "Mo,Tu,We,Th,Fr,Sa 07:00-19:00",
+			"areaServed": [
+				"Hamilton, MT", "Corvallis, MT", "Darby, MT", "Stevensville, MT",
+				"Florence, MT", "Victor, MT", "Missoula, MT", "Lolo, MT",
+				"Frenchtown, MT", "Wisdom, MT", "Pinesdale, MT"
+			]
+		}
+		</script>
+	</head>
+	<body>
+		@Nav(cfg)
+		{ children... }
+		@Footer()
+	</body>
+	</html>
+}
+
+templ Nav(cfg config.SiteConfig) {
+	<nav class="site-nav">
+		<div class="nav-inner">
+			<a href="/" class="nav-logo">
+				<img src="/static/images/Logo+-+Black-1920w.webp" alt={ cfg.Business.Name } width="44" height="44"/>
+				<div class="nav-logo-text">
+					<span class="nav-logo-name">{ cfg.Business.Name }</span>
+					<span class="nav-logo-sub">Hamilton, Montana &middot; Est. 2018</span>
+				</div>
+			</a>
+			<button class="nav-toggle" aria-label="Open menu" onclick="this.nextElementSibling.classList.toggle('active')">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+			<ul class="nav-links">
+				<li><a href="/roofing-services">Roofing</a></li>
+				<li><a href="/framing-services">Framing</a></li>
+				<li><a href="/siding-services">Siding</a></li>
+				<li><a href="/fencing-services">Fencing</a></li>
+				<li><a href="/#about">About</a></li>
+				<li><a href="/#testimonials">Testimonials</a></li>
+				<li><a href="/#contact">Contact</a></li>
+				<li><a href="tel:4065461018" class="nav-cta">Free Estimate</a></li>
+			</ul>
+		</div>
+	</nav>
+}
+
+templ Footer() {
+	<footer class="site-footer">
+		<div class="footer-inner">
+			<span class="footer-tagline">Built in the Bitterroot. Built to last.</span>
+			<span class="footer-credit">
+				Built by <a href="https://fireflymt.com" target="_blank" rel="noopener">Firefly Software</a> &middot; Helena, MT
+			</span>
+		</div>
+	</footer>
+}

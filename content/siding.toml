@@ -1,0 +1,87 @@
+[seo]
+title       = "Siding Contractor in Hamilton, MT | Western Skies Contracting"
+description = "Siding installation and replacement in Hamilton and the Bitterroot Valley. Wood, steel, aluminum, and composite. Soffit, fascia, and gutters. $5–$12/sqft. Free estimates."
+
+[header]
+eyebrow    = "Siding Services"
+h1         = "Siding Contractor Serving Hamilton and the Bitterroot Valley"
+hero_image = "siding-1.webp"
+
+[[lead]]
+text = "Siding does two jobs. It protects the structure — keeping moisture out of the wall cavity, holding up to wind-driven rain, and surviving the temperature swings this valley throws at a building every year. And it's the first thing anyone sees. A building sided right looks like it was built to last, because it was."
+
+[[lead]]
+text = "We install siding that does both jobs well. Properly flashed, properly sealed, with the details done correctly so nothing moves, buckles, or pulls away from the structure after a few hard winters. We've been doing this long enough to know where siding jobs fail and how to make sure ours don't."
+
+[materials]
+intro = "Every material has its place. We'll tell you what makes sense for your building, your budget, and how long you want it to last — not just what's easiest for us to install."
+
+[[materials.items]]
+name  = "Steel Siding"
+copy  = "The most durable option for Montana conditions. Steel doesn't rot, doesn't absorb moisture, and holds its finish through decades of UV exposure and temperature cycling. Available in a wide range of profiles and colors. We source from both regional suppliers and local valley sources. Good for: agricultural buildings, shops, commercial structures, and homeowners who want the lowest lifetime maintenance cost."
+image = "siding-after-1.webp"
+
+[[materials.items]]
+name  = "LP SmartSide Composite"
+copy  = "Engineered wood siding that looks like natural wood but is treated to resist moisture, impact, and fungal decay. Paintable, cuttable, and works well on residential buildings where the look of wood matters but the maintenance of natural wood doesn't. Good for: homes, cabins, and outbuildings where appearance is a priority."
+image = "siding-2.webp"
+
+[[materials.items]]
+name  = "Natural Wood"
+copy  = "For projects where character and authenticity matter more than low maintenance. We work with Montana Timber Products and other regional sources. Natural wood requires more upkeep over its life — we'll be straight with you about what that means before you commit. Good for: custom homes, historic properties, and owners who understand and accept what natural wood requires."
+
+[[materials.items]]
+name  = "Aluminum"
+copy  = "Lightweight, corrosion-resistant, and a proven performer in wet and coastal climates. Less common in the Bitterroot but the right call for specific applications. Good for: buildings with high moisture exposure or unusual structural requirements."
+
+[[services]]
+name  = "Full Exterior Package"
+copy  = "Most siding jobs also need soffit, fascia, and gutters. We do all of it — you don't need to coordinate a separate crew or manage the schedule between trades. We finish the exterior as a complete system. If you need work outside the exterior envelope — mechanical, electrical, plumbing — we'll connect you with tradespeople we trust in the valley."
+image = "siding-after-3.webp"
+items = [
+  "Siding installation (new or replacement)",
+  "Soffit and fascia",
+  "Gutters and downspouts",
+  "Flashing and trim details",
+]
+
+[[services]]
+name  = "Siding Replacement"
+copy  = "When we reside a building we give you the option to remove and fully dispose of the old material. We leave the site clean — no pile of old siding left for you to deal with. If there's underlying damage to the sheathing or framing once the old siding comes off, we'll show you what we found and talk through the options before we proceed."
+image = "siding-before-2.webp"
+
+[pricing]
+copy = "Siding typically runs $5–$12 per square foot of wall, depending on material and building complexity. Steel and composite tend to sit at different points in that range — call us with your square footage and material preference and we'll give you a real number."
+
+[cta]
+heading = "Get a Siding Estimate"
+copy    = "Call Matt or John. We'll talk through your building, the material options, and what fits your budget."
+button  = "Request an Estimate"
+
+[[testimonials]]
+quote  = "We've used Western Skies three times. They built an incredible barn, remodeled the exterior of our house — resided it, built a new porch, new doors and windows — and did a concrete job for the business I work for. Hardworking, trustworthy, and dependable every time."
+author = "Chris H."
+
+[[testimonials]]
+quote  = "We have used Western Skies Contracting three times. They built two barns and a deck ramp. Hard working, always on time. I'm planning on building another equipment storage shed and will only use this group."
+author = "Robert U."
+
+[[testimonials]]
+quote  = "They built our home in 2020, then came back for an addition and garage. I'm so impressed with how fast they finished. Great pricing, perfect job."
+author = "Ciara G."
+
+[[suppliers]]
+name = "Montana Timber Products — Natural Wood Siding"
+url  = "https://www.montanatimberproducts.com"
+
+[[suppliers]]
+name = "LP Building Products — SmartSide Composite"
+url  = "https://lpcorp.com/products/siding-trim"
+
+[[suppliers]]
+name = "ProTech Steel — Steel Siding, Larger Variety"
+url  = "https://protechsteel.com"
+
+[[suppliers]]
+name = "Triad Building Components — Local Steel Supplier"
+url  = "https://www.triadbuildingcomponents.com/metal-profiles"

@@ -1,0 +1,15 @@
+# Go
+/western-skies
+*.exe
+
+# Templ generated files (regenerated on build)
+*_templ.go
+
+# Env / secrets
+.env
+*.env
+
+# Editor
+.DS_Store
+.idea/
+.vscode/

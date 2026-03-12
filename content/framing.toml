@@ -1,0 +1,61 @@
+[seo]
+title       = "Framing Contractor in Hamilton, MT | Western Skies Contracting"
+description = "Home, barn, and shop framing in Hamilton and the Bitterroot Valley. Full dirt-to-dried-in builds. Engineered for Montana snow and wind loads. Call for a free estimate."
+
+[header]
+eyebrow    = "Framing Services"
+h1         = "Framing Contractor for Homes, Barns & Shops in Hamilton, MT"
+hero_image = "framing-1.webp"
+
+[[lead]]
+text = "Framing is where a project stops being a plan and starts being a building. We take lumber and turn it into something that will stand for generations — designed for the loads this environment actually puts on a structure. In Montana that means engineering for snow, wind, and the kind of cold that finds every shortcut eventually."
+
+[[lead]]
+text = "We've framed homes, shops, barns, and equipment buildings across the Bitterroot since 2018. Before that, John and Matt each spent years in the field learning what holds and what doesn't. That knowledge goes into every build we take on."
+
+[[services]]
+name  = "Dirt to Dried-In"
+copy  = "Most of the projects we take are full builds — from the first stake in the ground through framing, windows, doors, siding, and roof. We call it dirt to dried-in, and it's where we do our best work. One crew handles the whole sequence. That means one phone call when you have a question, one schedule to track, and no gap between trades where things get missed or blamed on the last guy. It also means we're accountable for the whole thing — not just our portion of it. If you need work outside that scope — mechanical, electrical, plumbing — we'll connect you with tradespeople we trust in the valley."
+image = "framing-3.webp"
+items = [
+  "Site work and dirt work",
+  "Foundation",
+  "Structural framing",
+  "Exterior doors and windows",
+  "Siding and roofing",
+]
+
+[[services]]
+name  = "New Builds"
+copy  = "We build homes, shops, barns, garages, pole buildings, and agricultural structures. Bring us your plans or come with an idea and we'll help you develop something that fits your land, your use, and your budget. One thing worth knowing before you call: simpler designs cost less. The square footage number on a set of plans doesn't tell the whole story — a complex roofline or irregular footprint can cost more than a building twice the size built square. We'll walk you through where complexity adds cost before you commit, so there are no surprises when the bid comes back. We work with engineers when a project calls for it, and we'll tell you when it does."
+image = "framing-2.webp"
+
+[[services]]
+name  = "Large Remodels"
+copy  = "We take on major structural remodels — additions, structural modifications, and significant exterior work. We typically schedule remodels in winter months, December through March, when new build volume is lower and we can give the project the attention it deserves. We generally pass on small remodels. If that's what you need, call us anyway — we'll point you toward someone who can help."
+image = "framing-4.webp"
+
+[pricing]
+copy = "Framing prices vary too much by project to quote without a conversation. A 2,400 square foot home with a simple gable roof is a different job than a 1,600 square foot home with dormers, a covered porch, and a bump-out. We'd rather talk through your project and give you a real number than throw a per-square-foot figure at you that may have nothing to do with your actual build. Call Matt at 406-546-1018 and we'll figure out what you're working with."
+
+[note]
+heading = "A Note on Engineering"
+copy    = "Montana has specific requirements for structural loads — particularly snow and wind. The Bitterroot Valley sits in a region where those loads are real and where roofs and walls that meet minimum code can still underperform over time. We build above code because we've seen what happens when structures are built to the minimum and then tested by a hard winter. For larger or more complex structures, we work with licensed engineers to ensure the design meets the demands of the site. If your project requires an engineer, we'll tell you upfront and help you find one if you don't have one."
+image   = "framing-5.webp"
+
+[cta]
+heading = "Get a Framing Estimate"
+copy    = "Call Matt or John. Tell us what you're building and where. We'll ask the right questions and give you a straight answer on fit, timeline, and cost."
+button  = "Request an Estimate"
+
+[[testimonials]]
+quote  = "They built our home back in 2020, then added an addition and garage a few months back. I'm so impressed with how fast they finished. Great pricing and a perfect job — they treat you like a forever friend."
+author = "Ciara G."
+
+[[testimonials]]
+quote  = "A lifelong dream come true. Matthew worked with us from the beginning to stay within budget while getting us as much of what we wanted as possible. The field crew worked five straight days and got the barn up with amazing speed. They left a clean site and a beautiful barn that will surely outlive me."
+author = "Samantha P."
+
+[[testimonials]]
+quote  = "They built a 36×40×16 building for me and were always on time. A windstorm hit the night after they framed it up. It stood right through."
+author = "Ross P."

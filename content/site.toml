@@ -1,0 +1,104 @@
+[business]
+name        = "Western Skies Contracting"
+tagline     = "A Local Building Contractor You Can Trust"
+email       = ""
+address     = "Hamilton, Montana"
+url         = "https://www.westernskiescontractingmt.com"
+
+  [business.hours]
+  weekdays = "Mon – Sat: 7:00 am – 7:00 pm"
+  sunday   = "Closed"
+
+[seo]
+title       = "Western Skies Contracting | Roofing, Framing, Siding & Fencing | Hamilton, MT"
+description = "Owner-operated contractor serving the Bitterroot Valley since 2018. Roofing, framing, siding, and fencing done right. Call John or Matt for a free estimate."
+
+[[phones]]
+label  = "Office Manager"
+name   = "Matt Detweiler"
+number = "406-546-1018"
+
+[[phones]]
+label  = "Owner"
+name   = "John Plocher"
+number = "406-381-8391"
+
+[[services]]
+slug        = "roofing"
+name        = "Roofing"
+headline    = "Roofing Services"
+description = "Montana winters don't forgive a bad roof. We install and replace roofs built to handle the load — metal, shingle, or standing seam. Done right the first time."
+image       = "20200924_125824-1920w.jpg"
+
+[[services]]
+slug        = "framing"
+name        = "Framing"
+headline    = "Framing Services"
+description = "From foundations to ridgeline, we build the bones of homes, shops, and barns. New builds and large additions. We'll work with your engineer or help you find one."
+image       = "framing.jpg"
+
+[[services]]
+slug        = "siding"
+name        = "Siding"
+headline    = "Siding Services"
+description = "The outside of a building is its first defense and its first impression. We install wood, steel, aluminum, and composite siding — plus soffit, fascia, and gutters."
+image       = "20240612_184836-1920w.jpg"
+
+[[services]]
+slug        = "fencing"
+name        = "Fencing"
+headline    = "Fencing Services"
+description = "Ranch fence, privacy fence, log worm, post and rail, custom gates. Built for this country and built to hold. $10–$20 per linear foot depending on type."
+image       = "fencing.jpg"
+
+[[testimonials]]
+quote  = "They came in with the most honest and organized crew I've ever worked with — an incredible, well-oiled machine that gets the job done perfectly and incredibly fast while being so positive and kind."
+author = "Maynord Family"
+
+[[testimonials]]
+quote  = "Every appointment, from the bid to the latch on the final gate, they were on time. 800 feet of fencing in 2 days. Product and workmanship top notch. Our cows love it."
+author = "Wayne M."
+
+[[testimonials]]
+quote  = "They built our home in 2020, then added an addition and garage a few months back. Great pricing, perfect job. John and his crew treat you like a forever friend."
+author = "Ciara G."
+
+[[testimonials]]
+quote  = "A lifelong dream come true. Matthew worked with us from the start to stay within budget. The field crew worked five straight days and the barn outlived our highest hopes. They left the site clean."
+author = "Samantha P."
+
+[[testimonials]]
+quote  = "We've used Western Skies three times — a barn, a house exterior remodel, and a concrete job. Hardworking, trustworthy, and dependable every time."
+author = "Chris H."
+
+[[testimonials]]
+quote  = "They responded quickly when my rental property developed a major roof leak in cold weather, coordinated with my renter, and had it fixed faster than I thought possible. Great prices and service."
+author = "Joshua H."
+
+[[testimonials]]
+quote  = "My roof stood up to a windstorm the night after they framed up my building. They are a good group of guys."
+author = "Ross P."
+
+[[testimonials]]
+quote  = "We worked with John for months on a plan for our daughter's family home. Today it started. The crew is amazing and hardworking. Thank you, John and crew."
+author = "Ginger D."
+
+[[features]]
+label = "Experience You Can Verify"
+copy  = "Over 25 years of combined field experience. We'll give you honest answers to your questions — even if that means telling you something you don't want to hear."
+
+[[features]]
+label = "Locally Owned & Operated"
+copy  = "We live and work in this valley. Our reputation is built neighbor by neighbor. When we finish your project, we have to look you in the eye at the hardware store."
+
+[[features]]
+label = "One Crew, Four Trades"
+copy  = "Roofing, framing, siding, and fencing under one roof. Most projects we take from dirt to dried-in, which means fewer handoffs and one point of contact throughout."
+
+[service_area]
+description = "We're based in Hamilton and do most of our work in the Bitterroot — but if you're in Montana and the project is right, give us a call."
+towns = [
+  "Hamilton", "Corvallis", "Darby", "Stevensville", "Florence",
+  "Victor", "Pinesdale", "Lolo", "Missoula", "Frenchtown",
+  "Clinton", "Bonner-West Riverside", "Wisdom", "Alberton", "Sula"
+]

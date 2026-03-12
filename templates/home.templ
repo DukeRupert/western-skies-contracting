@@ -1,0 +1,213 @@
+package templates
+
+import (
+	"github.com/fireflymt/western-skies/internal/config"
+	"strings"
+)
+
+templ Home(cfg config.SiteConfig) {
+	@Base(cfg, cfg.SEO.Title, cfg.SEO.Description) {
+		@HeroSection(cfg)
+		<div class="accent-rule"></div>
+		@AboutSection(cfg)
+		@FeaturesSection(cfg)
+		@ServicesSection(cfg)
+		@TestimonialsSection(cfg)
+		@ServiceAreaSection(cfg)
+		@ContactSection(cfg)
+	}
+}
+
+templ HeroSection(cfg config.SiteConfig) {
+	<section class="hero">
+		<div class="hero-bg">
+			<img src="/static/images/333338014_752212066181811_2060860814604542921_n-1920w.jpg" alt="Montana barn under dramatic Bitterroot Valley sky" width="1920" height="1280"/>
+		</div>
+		<div class="hero-content">
+			<div class="section-eyebrow--light section-eyebrow">Bitterroot Valley &middot; Montana</div>
+			<h1>
+				Built to last.
+				<em>Built for this land.</em>
+			</h1>
+			<p class="hero-lead">
+				John and Matt have been building in the Bitterroot Valley for over 25 years. Every project gets their personal attention — from the first call to the final cleanup. Owner-operated since day one, and that's not changing.
+			</p>
+			<div class="hero-buttons">
+				<a href="tel:4065461018" class="btn-primary btn-primary--light">Get a Free Estimate</a>
+				<a href="#services" class="btn-ghost btn-ghost--light">View Our Work</a>
+			</div>
+			<div class="hero-stats">
+				<div class="hero-stat">
+					<span class="hero-stat-value">25+</span>
+					<span class="hero-stat-label">Years Combined Experience</span>
+				</div>
+				<div class="hero-stat">
+					<span class="hero-stat-value">2018</span>
+					<span class="hero-stat-label">Established</span>
+				</div>
+				<div class="hero-stat">
+					<span class="hero-stat-value">4</span>
+					<span class="hero-stat-label">Trades, One Crew</span>
+				</div>
+			</div>
+		</div>
+	</section>
+}
+
+templ AboutSection(cfg config.SiteConfig) {
+	<section id="about" class="section has-grain">
+		<div class="section-inner">
+			<div class="about-grid">
+				<div class="about-text">
+					<div class="section-eyebrow">Who We Are</div>
+					<h2>
+						Owner-operated.
+						<em>Community rooted.</em>
+					</h2>
+					<p>
+						John Plocher was born and raised just outside Corvallis. He grew up working alongside his family, learning early that the quality of your work is your word. Matt Detweiler brings the same standard to every estimate and every job site. Between them, they've built homes, barns, shops, and fences across the Bitterroot and beyond.
+					</p>
+					<p>
+						We don't subcontract the work that matters. When you hire Western Skies, John and Matt are on the job.
+					</p>
+					<div class="scripture">
+						<blockquote>
+							"Whatever you do, work at it with all your heart, as working for the Lord."
+						</blockquote>
+						<cite>— Colossians 3:23</cite>
+					</div>
+				</div>
+				<div class="about-image">
+					<img src="/static/images/team.jpg" alt="The Western Skies Contracting crew" width="800" height="1000"/>
+				</div>
+			</div>
+		</div>
+	</section>
+}
+
+templ FeaturesSection(cfg config.SiteConfig) {
+	<section class="section section--dark dark">
+		<div class="section-inner">
+			<div class="section-eyebrow">Why Choose Us</div>
+			<h2 style="max-width: 520px;">
+				Built different. On purpose.
+			</h2>
+			<div class="features-grid">
+				for _, f := range cfg.Features {
+					<div class="feature-card">
+						<h3>{ f.Label }</h3>
+						<p>{ f.Copy }</p>
+					</div>
+				}
+			</div>
+		</div>
+	</section>
+}
+
+templ ServicesSection(cfg config.SiteConfig) {
+	<section id="services" class="section has-grain">
+		<div class="section-inner">
+			<div class="section-eyebrow">What We Do</div>
+			<h2>Four trades. One crew.</h2>
+			<div class="services-grid">
+				for _, s := range cfg.Services {
+					<div class="service-card">
+						<img src={ "/static/images/" + s.Image } alt={ s.Headline } width="800" height="500"/>
+						<div class="service-card-overlay"></div>
+						<div class="service-card-content">
+							<h3>{ s.Name }</h3>
+							<p>{ s.Description }</p>
+						</div>
+					</div>
+				}
+			</div>
+		</div>
+	</section>
+}
+
+templ TestimonialsSection(cfg config.SiteConfig) {
+	<section id="testimonials" class="section section--white">
+		<div class="section-inner">
+			<div class="section-eyebrow">What Neighbors Say</div>
+			<h2>Trusted across the Bitterroot.</h2>
+			<div class="testimonials-grid">
+				for _, t := range cfg.Testimonials {
+					<div class="testimonial-card">
+						<blockquote>
+							"{ t.Quote }"
+						</blockquote>
+						<cite>— { t.Author }</cite>
+					</div>
+				}
+			</div>
+		</div>
+	</section>
+}
+
+templ ServiceAreaSection(cfg config.SiteConfig) {
+	<section class="section section--dark dark">
+		<div class="section-inner">
+			<div class="section-eyebrow">Where We Work</div>
+			<h2>Serving the Bitterroot Valley and Beyond</h2>
+			<p style="margin-top: 16px; max-width: 580px;">{ cfg.ServiceArea.Description }</p>
+			<div class="service-area-towns">
+				for _, town := range cfg.ServiceArea.Towns {
+					<span>{ town }</span>
+				}
+			</div>
+		</div>
+	</section>
+}
+
+templ ContactSection(cfg config.SiteConfig) {
+	<section id="contact" class="section has-grain">
+		<div class="section-inner">
+			<div class="section-eyebrow">Get in Touch</div>
+			<h2>Ready to build something that lasts?</h2>
+			<p style="margin-top: 16px; margin-bottom: 48px; max-width: 580px;">
+				Call John or Matt directly. We'll talk through your project, give you an honest estimate, and tell you what we think — not just what you want to hear.
+			</p>
+			<div class="cta-grid">
+				<div>
+					for _, phone := range cfg.Phones {
+						<div class="contact-detail">
+							<div class="contact-detail-label">{ phone.Label }</div>
+							<div class="contact-detail-value">
+								{ phone.Name } &mdash;
+								<a href={ templ.SafeURL("tel:" + strings.ReplaceAll(phone.Number, "-", "")) }>{ phone.Number }</a>
+							</div>
+						</div>
+					}
+					<div class="contact-detail">
+						<div class="contact-detail-label">Location</div>
+						<div class="contact-detail-value">{ cfg.Business.Address }</div>
+					</div>
+					<div class="contact-hours">
+						<div class="contact-detail-label">Hours</div>
+						<div class="contact-detail-value">{ cfg.Business.Hours.Weekdays }</div>
+						<div class="contact-detail-value" style="color: var(--color-muted-text);">Sunday: { cfg.Business.Hours.Sunday }</div>
+					</div>
+				</div>
+				<form class="contact-form" action="#" method="post">
+					<div class="form-field">
+						<label for="name">Name</label>
+						<input type="text" id="name" name="name" required/>
+					</div>
+					<div class="form-field">
+						<label for="phone">Phone</label>
+						<input type="tel" id="phone" name="phone"/>
+					</div>
+					<div class="form-field">
+						<label for="email">Email</label>
+						<input type="email" id="email" name="email"/>
+					</div>
+					<div class="form-field">
+						<label for="message">Tell us about your project</label>
+						<textarea id="message" name="message" rows="5"></textarea>
+					</div>
+					<button type="submit" class="btn-primary">Send Message</button>
+				</form>
+			</div>
+		</div>
+	</section>
+}

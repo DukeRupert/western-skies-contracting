@@ -1,0 +1,59 @@
+[seo]
+title       = "Fencing Contractor in Hamilton, MT | Western Skies Contracting"
+description = "Ranch fencing, privacy fencing, log worm, and post and rail in Hamilton and the Bitterroot Valley. $10–$20/LF. Posts $15 each. Call for a free estimate."
+
+[header]
+eyebrow    = "Fencing Services"
+h1         = "Fencing Contractor in Hamilton and the Bitterroot Valley"
+hero_image = "fencing-9.webp"
+
+[[lead]]
+text = "A fence is only as good as the posts holding it up and the crew that set them. We build fences the same way we build everything else — material chosen for the application, posts set right, and the whole thing built to stay put through ground freeze, spring thaw, and whatever livestock decides to test it."
+
+[[lead]]
+text = "Wayne M. hired us for 800 linear feet of fencing. We finished in two days. Every appointment from bid to final gate latch was on time. His cows approved."
+
+[[services]]
+name  = "Ranch & Agricultural Fencing"
+copy  = "Post and rail fencing for pastures, property lines, and livestock containment. Built for the valley — cedar and treated posts, properly spaced and set to depth so frost heave doesn't walk them out over a few winters. We source posts locally through Frontier Posts. Good for: cattle operations, horse properties, large lot boundaries, and any application where you need fence that covers ground efficiently and holds up to animals."
+image = "fencing-4.jpg"
+
+[[services]]
+name  = "Log Worm Fencing"
+copy  = "Traditional stacked zigzag rail fencing with roots in this part of the country. When it's built right it stays tight, reads well on a Montana property, and doesn't need post holes. When it's built wrong it migrates and sags inside of a few years. We know the difference. Good for: property entrances, decorative boundary fencing, and owners who want their land to look like it belongs here."
+image = "fencing-8.jpg"
+
+[[services]]
+name  = "Privacy Fencing"
+copy  = "Cedar and treated lumber privacy fencing for residential properties. Built plumb, built square, with properly set posts and gates that swing and latch the way they should from day one and year five. Good for: residential lots, yards, and any application where you need a solid visual barrier."
+image = "fencing-1.jpg"
+
+[[services]]
+name  = "Custom Gates"
+copy  = "We build and hang gates as part of any fencing project. A gate that doesn't swing right or latch cleanly is a daily frustration — we get the details right."
+image = "fencing-10.jpg"
+
+[pricing]
+copy = "Fencing typically runs $10–$20 per linear foot, depending on fence type and terrain. Post-only work is $15 per post. Those numbers hold for most straightforward projects. Rocky ground, steep terrain, or remote access can affect the cost — call us and we'll talk through your specific site."
+
+[note]
+heading = "How We Work"
+copy    = "We show up when we say we will. We quote the job honestly. We finish it and leave the site clean. That's it. If your project is outside our typical scope — wire fencing, specialty agricultural systems, or something we haven't listed here — call us. We'll tell you whether we're the right fit or point you toward someone who is."
+image   = "fencing-7.webp"
+
+[cta]
+heading = "Get a Fencing Estimate"
+copy    = "Call Matt or John. Tell us what you're fencing, roughly how much of it, and what the ground is like. We'll take it from there."
+button  = "Request an Estimate"
+
+[[testimonials]]
+quote  = "Every appointment, from the bid to the latch on the final gate, they were on time. 800 feet of fencing completed in two days. Product and workmanship top notch. We will be using Western Skies again. Our cows love it."
+author = "Wayne M."
+
+[[testimonials]]
+quote  = "We have used Western Skies three times — two barns and a deck ramp. Hard working, always on time. I'm planning on building another equipment storage shed and will only use this group."
+author = "Robert U."
+
+[[suppliers]]
+name = "Frontier Posts — Local Fencing Post Supplier"
+url  = "https://www.frontierposts.com"

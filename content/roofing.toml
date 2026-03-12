@@ -1,0 +1,77 @@
+[seo]
+title       = "Roofing Contractor in Hamilton, MT | Western Skies Contracting"
+description = "Roofing installation and replacement serving Hamilton and the Bitterroot Valley. Metal, shingle, and standing seam. $5–$12/sqft installed. Call for a free estimate."
+
+[header]
+eyebrow    = "Roofing Services"
+h1         = "Roofing Contractor Serving Hamilton and the Bitterroot Valley"
+hero_image = "roofing-1.jpg"
+
+[[lead]]
+text = "A roof isn't something you want to think about twice. In the Bitterroot, it has to carry snow loads, shed ice without lifting, and seal tight through freeze-thaw cycles that would crack average work in a season or two. We build roofs to a standard above local code — not because we have to, but because our name is on it."
+
+[[lead]]
+text = "Every roofing project starts the same way: we talk through what you have, what you need, and what fits your budget. The quality of the install is not a variable. The material is. We'll help you choose the right one."
+
+[[services]]
+name  = "New Roof Installation"
+copy  = "Whether you're putting a roof on a new build or adding a structure to your property, choosing the right roofing system from the start saves money over the life of the building. We work with you on material selection, handle the full installation, and dispose of all leftover materials at no additional charge."
+image = "roofing-4.webp"
+
+[[services]]
+name  = "Roof Replacement"
+copy  = "A roof should be replaced before it fails — not after. Once water gets into the wall cavity or ceiling structure, a roofing job becomes a reconstruction job, and costs multiply fast. We offer full tear-off and disposal of existing materials, or we can assess whether roofing over is appropriate for your situation. We'll tell you which one makes more sense for yours."
+image = "20200924_125824-1920w.jpg"
+
+[materials]
+intro = "We source from suppliers we trust, including local suppliers in the valley. The material you choose affects price, timeline, and how the building performs over its life — we'll walk you through the tradeoffs."
+
+[[materials.items]]
+name  = "Metal Roofing"
+copy  = "The most common choice for agricultural and commercial buildings in Montana, and increasingly for homes. Handles heavy snow loads, sheds ice well, and outlasts shingles by decades when installed correctly. We work with both regional suppliers and local valley sources for steel panels and standing seam profiles."
+image = "roofing-3.webp"
+
+[[materials.items]]
+name  = "Architectural Shingles"
+copy  = "A proven, cost-effective option for residential roofs. We install Owen Corning shingles and other quality lines. If your project calls for shingles, we'll spec the right weight and wind rating for your exposure."
+image = "roofing-2.webp"
+
+[[materials.items]]
+name  = "Other Materials"
+copy  = "If you have something specific in mind that isn't listed here, call us. We'll find it or tell you honestly why it won't hold up in this climate."
+
+[pricing]
+copy = "Roofing typically runs $5–$12 per square foot installed, depending on material, roof pitch, and site access. That's a wide range because roofs vary. Call us with your square footage and what you're working with — we'll give you a real number, not a ballpark designed to get you on the phone."
+
+[note]
+heading = "A Note on How We Work"
+copy    = "We don't pad bids. We don't win jobs by quoting low and making it up in change orders. If a project isn't a fit — wrong scope, wrong season, wrong budget — we'll tell you that too, and point you toward someone who can help. That's how you build a reputation in a valley where everyone knows everyone."
+
+[cta]
+heading = "Get a Roofing Estimate"
+copy    = "Call Matt or John directly. We'll talk through your project and give you a straight answer."
+button  = "Request an Estimate"
+
+[[testimonials]]
+quote  = "They came in with the most honest and organized crew I've ever worked with — an incredible, well-oiled machine that gets the job done perfectly and incredibly fast while being so positive and kind. We can't thank them enough."
+author = "Maynord Family"
+
+[[testimonials]]
+quote  = "I own a rental property that developed a major leak after a stretch of cold, snowy weather. Western Skies responded quickly, coordinated with my renter, and had it fixed faster than I thought possible. Great prices and service."
+author = "Joshua H."
+
+[[testimonials]]
+quote  = "They built a 36x40x16 building for me and were always on time. A windstorm hit the night after they framed it up — it stood right through."
+author = "Ross P."
+
+[[suppliers]]
+name = "ProTech Steel — Steel Roofing, Larger Variety"
+url  = "https://protechsteel.com"
+
+[[suppliers]]
+name = "Triad Building Components — Local Steel Supplier"
+url  = "https://www.triadbuildingcomponents.com/metal-profiles"
+
+[[suppliers]]
+name = "Owens Corning — Architectural Shingles"
+url  = "https://www.owenscorning.com/en-us/roofing/shingles"
