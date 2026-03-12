@@ -57,7 +57,7 @@ templ Base(cfg config.SiteConfig, title string, description string, path string)
 	<body>
 		@Nav(cfg)
 		{ children... }
-		@Footer()
+		@Footer(cfg)
 	</body>
 	</html>
 }
@@ -92,13 +92,28 @@ templ Nav(cfg config.SiteConfig) {
 	</nav>
 }
 
-templ Footer() {
+templ Footer(cfg config.SiteConfig) {
 	<footer class="site-footer">
 		<div class="footer-inner">
-			<span class="footer-tagline">Built in the Bitterroot. Built to last.</span>
-			<span class="footer-credit">
-				Built by <a href="https://fireflymt.com" target="_blank" rel="noopener">Firefly Software</a> &middot; Helena, MT
-			</span>
+			<div class="footer-brand">
+				<a href="/" class="footer-logo">
+					<img src="/static/images/Logo+-+Black-1920w.webp" alt={ cfg.Business.Name } width="120" height="120"/>
+				</a>
+				<span class="footer-tagline">Built in the Bitterroot. Built to last.</span>
+			</div>
+			<div class="footer-nav">
+				<a href="/roofing-services">Roofing</a>
+				<a href="/framing-services">Framing</a>
+				<a href="/siding-services">Siding</a>
+				<a href="/fencing-services">Fencing</a>
+				<a href="/gallery">Gallery</a>
+				<a href="/#contact">Contact</a>
+			</div>
+			<div class="footer-bottom">
+				<span class="footer-credit">
+					Built by <a href="https://fireflymt.com" target="_blank" rel="noopener">Firefly Software</a> &middot; Helena, MT
+				</span>
+			</div>
 		</div>
 	</footer>
 }
