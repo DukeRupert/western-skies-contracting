@@ -188,22 +188,22 @@ templ ContactSection(cfg config.SiteConfig) {
 						<div class="contact-detail-value" style="color: var(--color-muted-text);">Sunday: { cfg.Business.Hours.Sunday }</div>
 					</div>
 				</div>
-				<form class="contact-form" action="#" method="post">
+				<form class="contact-form" hx-post="/api/contact" hx-swap="outerHTML">
 					<div class="form-field">
-						<label for="name">Name</label>
-						<input type="text" id="name" name="name" required/>
+						<label for="home-name">Name</label>
+						<input type="text" id="home-name" name="name" required/>
 					</div>
 					<div class="form-field">
-						<label for="phone">Phone</label>
-						<input type="tel" id="phone" name="phone"/>
+						<label for="home-phone">Phone</label>
+						<input type="tel" id="home-phone" name="phone"/>
 					</div>
 					<div class="form-field">
-						<label for="email">Email</label>
-						<input type="email" id="email" name="email"/>
+						<label for="home-email">Email</label>
+						<input type="email" id="home-email" name="email"/>
 					</div>
 					<div class="form-field">
-						<label for="message">Tell us about your project</label>
-						<textarea id="message" name="message" rows="5"></textarea>
+						<label for="home-message">Tell us about your project</label>
+						<textarea id="home-message" name="message" rows="5"></textarea>
 					</div>
 					<button type="submit" class="btn-primary">Send Message</button>
 				</form>

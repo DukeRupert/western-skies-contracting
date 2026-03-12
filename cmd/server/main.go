@@ -7,6 +7,7 @@ import (
 	"os"
 
 	"github.com/fireflymt/western-skies/internal/config"
+	"github.com/fireflymt/western-skies/internal/contact"
 	"github.com/fireflymt/western-skies/templates"
 )
 
@@ -40,6 +41,13 @@ func main() {
 		fmt.Printf("Loaded service page: %s\n", slug)
 	}
 
+	// Contact form handler
+	contactCfg := contact.Config{
+		PostmarkToken: os.Getenv("POSTMARK_SERVER_TOKEN"),
+		FromEmail:     os.Getenv("CONTACT_FROM_EMAIL"),
+		ToEmail:       os.Getenv("CONTACT_TO_EMAIL"),
+	}
+
 	// Static files
 	fs := http.FileServer(http.Dir("static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
@@ -64,6 +72,8 @@ func main() {
 	http.HandleFunc("/gallery", func(w http.ResponseWriter, r *http.Request) {
 		templates.Gallery(*cfg, *galleryPage).Render(r.Context(), w)
 	})
+
+	http.HandleFunc("/api/contact", contact.Handler(contactCfg))
 
 	http.HandleFunc("/robots.txt", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "text/plain")

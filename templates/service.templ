@@ -217,22 +217,22 @@ templ ServiceCTA(cfg config.SiteConfig, page config.ServicePageConfig) {
 						<div class="contact-detail-value" style="color: var(--color-white);">{ cfg.Business.Hours.Weekdays }</div>
 					</div>
 				</div>
-				<form class="contact-form" action="#" method="post">
+				<form class="contact-form" hx-post="/api/contact" hx-swap="outerHTML">
 					<div class="form-field">
-						<label for="name" style="color: var(--color-sunburst);">Name</label>
-						<input type="text" id="name" name="name" required/>
+						<label for="svc-name" style="color: var(--color-sunburst);">Name</label>
+						<input type="text" id="svc-name" name="name" required/>
 					</div>
 					<div class="form-field">
-						<label for="phone" style="color: var(--color-sunburst);">Phone</label>
-						<input type="tel" id="phone" name="phone"/>
+						<label for="svc-phone" style="color: var(--color-sunburst);">Phone</label>
+						<input type="tel" id="svc-phone" name="phone"/>
 					</div>
 					<div class="form-field">
-						<label for="email" style="color: var(--color-sunburst);">Email</label>
-						<input type="email" id="email" name="email"/>
+						<label for="svc-email" style="color: var(--color-sunburst);">Email</label>
+						<input type="email" id="svc-email" name="email"/>
 					</div>
 					<div class="form-field">
-						<label for="message" style="color: var(--color-sunburst);">Tell us about your project</label>
-						<textarea id="message" name="message" rows="5"></textarea>
+						<label for="svc-message" style="color: var(--color-sunburst);">Tell us about your project</label>
+						<textarea id="svc-message" name="message" rows="5"></textarea>
 					</div>
 					<button type="submit" class="btn-primary btn-primary--light">{ page.CTA.Button }</button>
 				</form>

@@ -847,6 +847,24 @@ a {
   resize: vertical;
 }
 
+.form-message {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: 400;
+  padding: var(--card-pad);
+  line-height: 1.6;
+}
+
+.form-message--success {
+  color: var(--color-sage);
+  border-left: 3px solid var(--color-sage);
+}
+
+.form-message--error {
+  color: #b45309;
+  border-left: 3px solid #b45309;
+}
+
 @media (max-width: 768px) {
   .cta-grid {
     grid-template-columns: 1fr;
