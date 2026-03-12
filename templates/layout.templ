@@ -8,8 +8,11 @@ templ Base(cfg config.SiteConfig, title string, description string, path string)
 	<head>
 		<meta charset="UTF-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<link rel="icon" type="image/webp" href="/static/images/Logo+-+Black-1920w.webp"/>
-		<link rel="apple-touch-icon" href="/static/images/Logo+-+Black-1920w.webp"/>
+		<link rel="icon" type="image/x-icon" href="/static/favicon.ico"/>
+		<link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png"/>
+		<link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png"/>
+		<link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png"/>
+		<link rel="manifest" href="/static/site.webmanifest"/>
 		<title>{ title }</title>
 		<meta name="description" content={ description }/>
 		<link rel="canonical" href={ cfg.Business.URL + path }/>
