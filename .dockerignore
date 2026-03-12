@@ -1,0 +1,6 @@
+.git
+.env
+server
+*.md
+templates/*_templ.go
+static/images/logo-white-bg.png
