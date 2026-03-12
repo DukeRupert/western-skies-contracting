@@ -112,12 +112,14 @@ templ Nav(cfg config.SiteConfig) {
 		function closeMenu() {
 			links.classList.remove('active');
 			overlay.classList.remove('active');
+			toggle.classList.remove('active');
 			toggle.setAttribute('aria-expanded', 'false');
 		}
 
 		toggle.addEventListener('click', function() {
 			const open = links.classList.toggle('active');
 			overlay.classList.toggle('active', open);
+			toggle.classList.toggle('active', open);
 			toggle.setAttribute('aria-expanded', String(open));
 		});
 
