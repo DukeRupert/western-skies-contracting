@@ -5,13 +5,15 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"net/url"
 	"strings"
 )
 
 type Config struct {
-	PostmarkToken string
-	FromEmail     string
-	ToEmail       string
+	PostmarkToken    string
+	FromEmail        string
+	ToEmail          string
+	TurnstileSecret  string
 }
 
 type postmarkEmail struct {
@@ -33,6 +35,16 @@ func Handler(cfg Config) http.HandlerFunc {
 			w.WriteHeader(http.StatusBadRequest)
 			fmt.Fprint(w, formError)
 			return
+		}
+
+		// Verify Turnstile token
+		if cfg.TurnstileSecret != "" {
+			token := r.FormValue("cf-turnstile-response")
+			if token == "" || !verifyTurnstile(cfg.TurnstileSecret, token, r.RemoteAddr) {
+				w.WriteHeader(http.StatusForbidden)
+				fmt.Fprint(w, formError)
+				return
+			}
 		}
 
 		name := strings.TrimSpace(r.FormValue("name"))
@@ -92,6 +104,28 @@ func Handler(cfg Config) http.HandlerFunc {
 		w.WriteHeader(http.StatusOK)
 		fmt.Fprint(w, formSuccess)
 	}
+}
+
+type turnstileResponse struct {
+	Success bool `json:"success"`
+}
+
+func verifyTurnstile(secret, token, remoteIP string) bool {
+	resp, err := http.PostForm("https://challenges.cloudflare.com/turnstile/v0/siteverify", url.Values{
+		"secret":   {secret},
+		"response": {token},
+		"remoteip": {remoteIP},
+	})
+	if err != nil {
+		return false
+	}
+	defer resp.Body.Close()
+
+	var result turnstileResponse
+	if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
+		return false
+	}
+	return result.Success
 }
 
 const formSuccess = `<div class="form-message form-message--success">Got it. We'll be in touch within one business day.</div>`

@@ -43,9 +43,10 @@ func main() {
 
 	// Contact form handler
 	contactCfg := contact.Config{
-		PostmarkToken: os.Getenv("POSTMARK_SERVER_TOKEN"),
-		FromEmail:     os.Getenv("CONTACT_FROM_EMAIL"),
-		ToEmail:       os.Getenv("CONTACT_TO_EMAIL"),
+		PostmarkToken:   os.Getenv("POSTMARK_SERVER_TOKEN"),
+		FromEmail:       os.Getenv("CONTACT_FROM_EMAIL"),
+		ToEmail:         os.Getenv("CONTACT_TO_EMAIL"),
+		TurnstileSecret: os.Getenv("TURNSTILE_SECRET_KEY"),
 	}
 
 	// Static files
@@ -71,6 +72,10 @@ func main() {
 
 	http.HandleFunc("/gallery", func(w http.ResponseWriter, r *http.Request) {
 		templates.Gallery(*cfg, *galleryPage).Render(r.Context(), w)
+	})
+
+	http.HandleFunc("/privacy", func(w http.ResponseWriter, r *http.Request) {
+		templates.Privacy(*cfg).Render(r.Context(), w)
 	})
 
 	http.HandleFunc("/api/contact", contact.Handler(contactCfg))

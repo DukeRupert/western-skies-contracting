@@ -1248,6 +1248,20 @@ a {
   color: var(--color-sunburst);
 }
 
+.footer-social {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-social a {
+  color: rgba(255,255,255,0.55);
+  transition: color 0.2s;
+}
+
+.footer-social a:hover {
+  color: var(--color-sunburst);
+}
+
 .footer-bottom {
   padding-top: 8px;
 }
@@ -1268,6 +1282,29 @@ a {
 
 .footer-credit a:hover {
   color: var(--color-white);
+}
+
+/* ── Privacy ── */
+
+.privacy-content h2 {
+  font-family: var(--font-ui);
+  font-size: var(--text-body);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-granite);
+  margin-top: 40px;
+  margin-bottom: 12px;
+}
+
+.privacy-content p {
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+.privacy-content a {
+  color: var(--color-granite);
+  text-decoration: underline;
 }
 
 /* ── Gallery ── */

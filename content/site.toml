@@ -9,6 +9,10 @@ url         = "https://www.westernskiescontractingmt.com"
   weekdays = "Mon – Sat: 7:00 am – 7:00 pm"
   sunday   = "Closed"
 
+[social]
+facebook = "https://www.facebook.com/WesternSkiesContracting/"
+google   = "https://maps.app.goo.gl/JkzRuYgbrjf3Ju96A"
+
 [seo]
 title       = "Western Skies Contracting | Roofing, Framing, Siding & Fencing | Hamilton, MT"
 description = "Owner-operated contractor serving the Bitterroot Valley since 2018. Roofing, framing, siding, and fencing done right. Call John or Matt for a free estimate."

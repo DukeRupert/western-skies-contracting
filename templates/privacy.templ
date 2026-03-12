@@ -1,0 +1,36 @@
+package templates
+
+import "github.com/fireflymt/western-skies/internal/config"
+
+templ Privacy(cfg config.SiteConfig) {
+	@Base(cfg, "Privacy | " + cfg.Business.Name, "How we handle your data. Short version: we respect it.", "/privacy") {
+		<section class="section has-grain" style="padding-top: calc(var(--nav-height) + var(--section-y));">
+			<div class="section-inner" style="max-width: 680px;">
+				<div class="section-eyebrow">Privacy</div>
+				<h1>How we handle your data</h1>
+				<div class="privacy-content">
+					<h2>Contact form</h2>
+					<p>
+						When you submit the contact form, we collect your name, phone number, email, and message. That information goes straight to our inbox so we can get back to you. We don't sell it, share it, or use it for marketing. Once we've talked, that's it.
+					</p>
+					<h2>Analytics</h2>
+					<p>
+						We use <a href="https://plausible.io" target="_blank" rel="noopener">Plausible Analytics</a> to understand how people find and use this site. Plausible doesn't use cookies, doesn't track you across sites, and doesn't collect personal data. It's open-source and hosted in the EU. We see aggregate numbers — which pages get visited and where traffic comes from — nothing about you individually.
+					</p>
+					<h2>Cookies</h2>
+					<p>
+						This site doesn't set any cookies.
+					</p>
+					<h2>Spam protection</h2>
+					<p>
+						Our contact form uses <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare Turnstile</a> to block spam. It runs in the background without tracking you or setting cookies. Cloudflare's privacy policy covers the details.
+					</p>
+					<h2>Questions</h2>
+					<p>
+						If you have questions about any of this, call Matt at <a href="tel:4065461018">406-546-1018</a>.
+					</p>
+				</div>
+			</div>
+		</section>
+	}
+}

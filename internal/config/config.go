@@ -8,13 +8,14 @@ import (
 )
 
 type SiteConfig struct {
-	Business    BusinessConfig    `toml:"business"`
-	SEO         SEOConfig         `toml:"seo"`
-	Phones      []PhoneEntry      `toml:"phones"`
-	Services    []ServiceEntry    `toml:"services"`
+	Business     BusinessConfig     `toml:"business"`
+	SEO          SEOConfig          `toml:"seo"`
+	Social       SocialConfig       `toml:"social"`
+	Phones       []PhoneEntry       `toml:"phones"`
+	Services     []ServiceEntry     `toml:"services"`
 	Testimonials []TestimonialEntry `toml:"testimonials"`
-	Features    []FeatureEntry    `toml:"features"`
-	ServiceArea ServiceAreaConfig `toml:"service_area"`
+	Features     []FeatureEntry     `toml:"features"`
+	ServiceArea  ServiceAreaConfig  `toml:"service_area"`
 }
 
 type BusinessConfig struct {
@@ -29,6 +30,11 @@ type BusinessConfig struct {
 type HoursConfig struct {
 	Weekdays string `toml:"weekdays"`
 	Sunday   string `toml:"sunday"`
+}
+
+type SocialConfig struct {
+	Facebook string `toml:"facebook"`
+	Google   string `toml:"google"`
 }
 
 type SEOConfig struct {

@@ -35,6 +35,7 @@ templ Base(cfg config.SiteConfig, title string, description string, path string)
 		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Barlow:wght@300;400;500&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet"/>
 		<link rel="stylesheet" href="/static/css/tokens.css"/>
 		<script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
+		<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 		<script type="application/ld+json">
 		{
 			"@context": "https://schema.org",
@@ -55,6 +56,10 @@ templ Base(cfg config.SiteConfig, title string, description string, path string)
 				"longitude": -114.1580
 			},
 			"openingHours": "Mo,Tu,We,Th,Fr,Sa 07:00-19:00",
+			"sameAs": [
+				"https://www.facebook.com/WesternSkiesContracting/",
+				"https://maps.app.goo.gl/JkzRuYgbrjf3Ju96A"
+			],
 			"areaServed": [
 				"Hamilton, MT", "Corvallis, MT", "Darby, MT", "Stevensville, MT",
 				"Florence, MT", "Victor, MT", "Missoula, MT", "Lolo, MT",
@@ -153,9 +158,22 @@ templ Footer(cfg config.SiteConfig) {
 				<a href="/gallery">Gallery</a>
 				<a href="/#contact">Contact</a>
 			</div>
+			<div class="footer-social">
+				if cfg.Social.Facebook != "" {
+					<a href={ templ.SafeURL(cfg.Social.Facebook) } target="_blank" rel="noopener" aria-label="Facebook">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"></path></svg>
+					</a>
+				}
+				if cfg.Social.Google != "" {
+					<a href={ templ.SafeURL(cfg.Social.Google) } target="_blank" rel="noopener" aria-label="Google Business Profile">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.35 11.1h-9.18v2.73h5.51c-.24 1.28-.98 2.36-2.08 3.08v2.56h3.36c1.97-1.81 3.1-4.48 3.1-7.64 0-.52-.05-1.02-.14-1.5l-.57.77zm-9.18 10.9c2.81 0 5.17-.93 6.89-2.53l-3.36-2.56c-.94.62-2.13.99-3.53.99-2.72 0-5.02-1.84-5.84-4.31H2.96v2.64C4.67 19.82 8.04 22 12.17 22zm-5.84-7.5c-.21-.62-.33-1.29-.33-1.98s.12-1.36.33-1.98V7.9H2.96A9.996 9.996 0 002 12c0 1.61.39 3.14 1.07 4.49l3.26-2.59zM12.17 5.56c1.53 0 2.91.53 3.99 1.56l2.99-2.99C17.33 2.55 14.97 1.5 12.17 1.5 8.04 1.5 4.67 3.68 2.96 7.27l3.37 2.64c.82-2.47 3.12-4.35 5.84-4.35z"></path></svg>
+					</a>
+				}
+			</div>
 			<div class="footer-bottom">
 				<span class="footer-credit">
 					Built by <a href="https://fireflymt.com" target="_blank" rel="noopener">Firefly Software</a> &middot; Helena, MT
+					&middot; <a href="/privacy">Privacy</a>
 				</span>
 			</div>
 		</div>
