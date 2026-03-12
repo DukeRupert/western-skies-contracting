@@ -5,8 +5,8 @@ import (
 	"strings"
 )
 
-templ ServicePage(cfg config.SiteConfig, page config.ServicePageConfig) {
-	@Base(cfg, page.SEO.Title, page.SEO.Description) {
+templ ServicePage(cfg config.SiteConfig, page config.ServicePageConfig, path string) {
+	@Base(cfg, page.SEO.Title, page.SEO.Description, path) {
 		@ServiceHero(page)
 		<div class="accent-rule"></div>
 		@ServiceLead(page)

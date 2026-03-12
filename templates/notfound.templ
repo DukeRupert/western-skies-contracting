@@ -3,7 +3,7 @@ package templates
 import "github.com/fireflymt/western-skies/internal/config"
 
 templ NotFound(cfg config.SiteConfig) {
-	@Base(cfg, "Page Not Found | " + cfg.Business.Name, "") {
+	@Base(cfg, "Page Not Found | " + cfg.Business.Name, "", "") {
 		<section class="section has-grain" style="padding-top: calc(var(--nav-height) + var(--section-y)); min-height: 60vh; display: flex; align-items: center;">
 			<div class="section-inner">
 				<h1>That page doesn't exist.</h1>

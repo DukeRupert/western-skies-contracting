@@ -46,23 +46,42 @@ func main() {
 
 	// Routes
 	http.HandleFunc("/roofing-services", func(w http.ResponseWriter, r *http.Request) {
-		templates.ServicePage(*cfg, *servicePages["roofing"]).Render(r.Context(), w)
+		templates.ServicePage(*cfg, *servicePages["roofing"], "/roofing-services").Render(r.Context(), w)
 	})
 
 	http.HandleFunc("/framing-services", func(w http.ResponseWriter, r *http.Request) {
-		templates.ServicePage(*cfg, *servicePages["framing"]).Render(r.Context(), w)
+		templates.ServicePage(*cfg, *servicePages["framing"], "/framing-services").Render(r.Context(), w)
 	})
 
 	http.HandleFunc("/siding-services", func(w http.ResponseWriter, r *http.Request) {
-		templates.ServicePage(*cfg, *servicePages["siding"]).Render(r.Context(), w)
+		templates.ServicePage(*cfg, *servicePages["siding"], "/siding-services").Render(r.Context(), w)
 	})
 
 	http.HandleFunc("/fencing-services", func(w http.ResponseWriter, r *http.Request) {
-		templates.ServicePage(*cfg, *servicePages["fencing"]).Render(r.Context(), w)
+		templates.ServicePage(*cfg, *servicePages["fencing"], "/fencing-services").Render(r.Context(), w)
 	})
 
 	http.HandleFunc("/gallery", func(w http.ResponseWriter, r *http.Request) {
 		templates.Gallery(*cfg, *galleryPage).Render(r.Context(), w)
+	})
+
+	http.HandleFunc("/robots.txt", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "text/plain")
+		fmt.Fprint(w, "User-agent: *\nAllow: /\n\nSitemap: "+cfg.Business.URL+"/sitemap.xml\n")
+	})
+
+	http.HandleFunc("/sitemap.xml", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/xml")
+		base := cfg.Business.URL
+		fmt.Fprintf(w, `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>%s/</loc><priority>1.0</priority></url>
+  <url><loc>%s/roofing-services</loc><priority>0.8</priority></url>
+  <url><loc>%s/framing-services</loc><priority>0.8</priority></url>
+  <url><loc>%s/siding-services</loc><priority>0.8</priority></url>
+  <url><loc>%s/fencing-services</loc><priority>0.8</priority></url>
+  <url><loc>%s/gallery</loc><priority>0.6</priority></url>
+</urlset>`, base, base, base, base, base, base)
 	})
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {

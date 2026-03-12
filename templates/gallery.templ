@@ -3,7 +3,7 @@ package templates
 import "github.com/fireflymt/western-skies/internal/config"
 
 templ Gallery(cfg config.SiteConfig, page config.GalleryPageConfig) {
-	@Base(cfg, page.SEO.Title, page.SEO.Description) {
+	@Base(cfg, page.SEO.Title, page.SEO.Description, "/gallery") {
 		<section class="service-hero section section--dark dark">
 			<div class="section-inner">
 				<div class="section-eyebrow">Our Work</div>

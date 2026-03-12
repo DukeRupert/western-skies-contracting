@@ -6,7 +6,7 @@ import (
 )
 
 templ Home(cfg config.SiteConfig) {
-	@Base(cfg, cfg.SEO.Title, cfg.SEO.Description) {
+	@Base(cfg, cfg.SEO.Title, cfg.SEO.Description, "/") {
 		@HeroSection(cfg)
 		<div class="accent-rule"></div>
 		@AboutSection(cfg)
