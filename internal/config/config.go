@@ -8,14 +8,20 @@ import (
 )
 
 type SiteConfig struct {
-	Business     BusinessConfig     `toml:"business"`
-	SEO          SEOConfig          `toml:"seo"`
-	Social       SocialConfig       `toml:"social"`
-	Phones       []PhoneEntry       `toml:"phones"`
-	Services     []ServiceEntry     `toml:"services"`
-	Testimonials []TestimonialEntry `toml:"testimonials"`
-	Features     []FeatureEntry     `toml:"features"`
-	ServiceArea  ServiceAreaConfig  `toml:"service_area"`
+	Business       BusinessConfig       `toml:"business"`
+	SEO            SEOConfig            `toml:"seo"`
+	Social         SocialConfig         `toml:"social"`
+	Phones         []PhoneEntry         `toml:"phones"`
+	Services       []ServiceEntry       `toml:"services"`
+	Testimonials   []TestimonialEntry   `toml:"testimonials"`
+	Features       []FeatureEntry       `toml:"features"`
+	ServiceArea    ServiceAreaConfig    `toml:"service_area"`
+	GalleryPreview []GalleryPreviewItem `toml:"gallery_preview"`
+}
+
+type GalleryPreviewItem struct {
+	Src string `toml:"src"`
+	Alt string `toml:"alt"`
 }
 
 type BusinessConfig struct {

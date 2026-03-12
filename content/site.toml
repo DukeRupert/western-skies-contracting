@@ -99,6 +99,30 @@ copy  = "We live and work in this valley. Our reputation is built neighbor by ne
 label = "One Crew, Four Trades"
 copy  = "Roofing, framing, siding, and fencing under one roof. Most projects we take from dirt to dried-in, which means fewer handoffs and one point of contact throughout."
 
+[[gallery_preview]]
+src = "full-build-1.webp"
+alt = "Completed full home build in the Bitterroot Valley"
+
+[[gallery_preview]]
+src = "roofing-1.jpg"
+alt = "Metal roof installation on residential home"
+
+[[gallery_preview]]
+src = "framing-1.webp"
+alt = "Barn framing in progress"
+
+[[gallery_preview]]
+src = "siding-after-1.webp"
+alt = "Home exterior after new siding installation"
+
+[[gallery_preview]]
+src = "fencing-2.webp"
+alt = "Post and rail fence installation"
+
+[[gallery_preview]]
+src = "full-build-5.webp"
+alt = "Finished barn build with metal siding"
+
 [service_area]
 description = "We're based in Hamilton and do most of our work in the Bitterroot — but if you're in Montana and the project is right, give us a call."
 towns = [

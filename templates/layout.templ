@@ -157,6 +157,7 @@ templ Footer(cfg config.SiteConfig) {
 				<a href="/fencing-services">Fencing</a>
 				<a href="/gallery">Gallery</a>
 				<a href="/#contact">Contact</a>
+				<a href="/privacy">Privacy</a>
 			</div>
 			<div class="footer-social">
 				if cfg.Social.Facebook != "" {
@@ -170,10 +171,17 @@ templ Footer(cfg config.SiteConfig) {
 					</a>
 				}
 			</div>
-			<div class="footer-bottom">
-				<span class="footer-credit">
-					Built by <a href="https://fireflymt.com" target="_blank" rel="noopener">Firefly Software</a> &middot; Helena, MT
-					&middot; <a href="/privacy">Privacy</a>
+			<!-- Firefly Software signature -->
+			<div class="footer-signature">
+				<span class="sig-divider dark">
+					<span class="sig-divider-rule"></span>
+					<span class="sig-divider-inner">
+						<span class="sig-divider-glyph">&#10022;</span>
+						<span class="sig-divider-text">
+							Made in Montana by <a href="https://fireflysoftware.dev" target="_blank" rel="noopener">Firefly Software</a>
+						</span>
+					</span>
+					<span class="sig-divider-rule"></span>
 				</span>
 			</div>
 		</div>

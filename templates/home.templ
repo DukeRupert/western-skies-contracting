@@ -13,6 +13,7 @@ templ Home(cfg config.SiteConfig) {
 		@FeaturesSection(cfg)
 		@ServicesSection(cfg)
 		@TestimonialsSection(cfg)
+		@ProjectsPreviewSection(cfg)
 		@ServiceAreaSection(cfg)
 		@ContactSection(cfg)
 	}
@@ -139,6 +140,25 @@ templ TestimonialsSection(cfg config.SiteConfig) {
 						<cite>— { t.Author }</cite>
 					</div>
 				}
+			</div>
+		</div>
+	</section>
+}
+
+templ ProjectsPreviewSection(cfg config.SiteConfig) {
+	<section class="section has-grain">
+		<div class="section-inner">
+			<div class="section-eyebrow">Our Work</div>
+			<h2>See it for yourself.</h2>
+			<div class="projects-preview-grid">
+				for _, img := range cfg.GalleryPreview {
+					<div class="projects-preview-item">
+						<img src={ "/static/images/gallery/" + img.Src } alt={ img.Alt } width="600" height="450" loading="lazy"/>
+					</div>
+				}
+			</div>
+			<div style="margin-top: 40px;">
+				<a href="/gallery" class="btn-primary">View Full Gallery</a>
 			</div>
 		</div>
 	</section>
