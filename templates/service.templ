@@ -7,6 +7,7 @@ import (
 
 templ ServicePage(cfg config.SiteConfig, page config.ServicePageConfig, path string) {
 	@Base(cfg, page.SEO.Title, page.SEO.Description, path) {
+		@ServiceSchema(cfg, page, path)
 		@ServiceHero(page)
 		<div class="accent-rule"></div>
 		@ServiceLead(page)
@@ -238,6 +239,46 @@ templ ServiceCTA(cfg config.SiteConfig, page config.ServicePageConfig) {
 			</div>
 		</div>
 	</section>
+}
+
+templ ServiceSchema(cfg config.SiteConfig, page config.ServicePageConfig, path string) {
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Service",
+		"serviceType": { page.Header.Eyebrow },
+		"provider": {
+			"@type": "LocalBusiness",
+			"name": { cfg.Business.Name },
+			"url": { cfg.Business.URL }
+		},
+		"areaServed": {
+			"@type": "Place",
+			"name": "Bitterroot Valley, Montana"
+		},
+		"description": { page.SEO.Description }
+	}
+	</script>
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		"itemListElement": [
+			{
+				"@type": "ListItem",
+				"position": 1,
+				"name": "Home",
+				"item": { cfg.Business.URL + "/" }
+			},
+			{
+				"@type": "ListItem",
+				"position": 2,
+				"name": { page.Header.Eyebrow },
+				"item": { cfg.Business.URL + path }
+			}
+		]
+	}
+	</script>
 }
 
 templ ServiceSuppliers(page config.ServicePageConfig) {
