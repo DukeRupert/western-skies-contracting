@@ -382,7 +382,7 @@ a {
   }
 
   .nav-links {
-    display: none;
+    display: flex;
     position: absolute;
     top: var(--nav-height);
     left: 0;
@@ -393,6 +393,10 @@ a {
     gap: 4px;
     border-bottom: 2px solid var(--color-sunburst);
     z-index: 101;
+    clip-path: inset(0 0 100% 0);
+    opacity: 0;
+    transition: clip-path 0.3s ease, opacity 0.25s ease;
+    pointer-events: none;
   }
 
   .nav-links a {
@@ -409,20 +413,25 @@ a {
   }
 
   .nav-links.active {
-    display: flex;
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+    pointer-events: auto;
   }
 
   .nav-overlay {
-    display: none;
     position: fixed;
     inset: 0;
     top: var(--nav-height);
     background: rgba(30, 33, 32, 0.5);
     z-index: 99;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
   }
 
   .nav-overlay.active {
-    display: block;
+    opacity: 1;
+    pointer-events: auto;
   }
 }
 
