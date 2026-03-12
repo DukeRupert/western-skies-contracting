@@ -1,0 +1,147 @@
+[seo]
+title       = "Project Gallery | Western Skies Contracting | Hamilton, MT"
+description = "Photos of completed roofing, framing, siding, and fencing projects across the Bitterroot Valley. Hamilton, MT contractor serving all of Montana."
+
+[[categories]]
+slug = "full-builds"
+name = "Full Builds"
+
+  [[categories.images]]
+  src = "full-build-1.webp"
+  alt = "Completed full home build in the Bitterroot Valley"
+
+  [[categories.images]]
+  src = "full-build-2.webp"
+  alt = "Custom home build with metal roofing and siding"
+
+  [[categories.images]]
+  src = "full-build-3.webp"
+  alt = "Full build project from foundation to finish"
+
+  [[categories.images]]
+  src = "full-build-4.webp"
+  alt = "Completed residential build in Hamilton, Montana"
+
+  [[categories.images]]
+  src = "full-build-5.webp"
+  alt = "Finished barn build with metal siding"
+
+  [[categories.images]]
+  src = "full-build-6.webp"
+  alt = "Custom shop build completed by Western Skies"
+
+[[categories]]
+slug = "roofing"
+name = "Roofing"
+
+  [[categories.images]]
+  src = "roofing-1.jpg"
+  alt = "Metal roof installation on residential home"
+
+  [[categories.images]]
+  src = "roofing-2.webp"
+  alt = "Standing seam metal roofing project"
+
+  [[categories.images]]
+  src = "roofing-3.webp"
+  alt = "Roof replacement with architectural shingles"
+
+  [[categories.images]]
+  src = "roofing-4.webp"
+  alt = "Completed roofing project in the Bitterroot Valley"
+
+[[categories]]
+slug = "framing"
+name = "Framing"
+
+  [[categories.images]]
+  src = "framing-1.webp"
+  alt = "Barn framing in progress"
+
+  [[categories.images]]
+  src = "framing-2.webp"
+  alt = "Residential home framing structural work"
+
+  [[categories.images]]
+  src = "framing-3.webp"
+  alt = "Shop framing with engineered trusses"
+
+  [[categories.images]]
+  src = "framing-4.webp"
+  alt = "Timber frame structure taking shape"
+
+  [[categories.images]]
+  src = "framing-5.webp"
+  alt = "Completed framing ready for sheathing"
+
+[[categories]]
+slug = "siding"
+name = "Siding"
+
+  [[categories.images]]
+  src = "siding-1.webp"
+  alt = "Steel panel siding installation"
+
+  [[categories.images]]
+  src = "siding-2.webp"
+  alt = "Completed siding project with trim work"
+
+  [[categories.images]]
+  src = "siding-before.webp"
+  alt = "Home exterior before siding replacement"
+
+  [[categories.images]]
+  src = "siding-after-1.webp"
+  alt = "Home exterior after new siding installation"
+
+  [[categories.images]]
+  src = "siding-before-2.webp"
+  alt = "Building exterior before siding work"
+
+  [[categories.images]]
+  src = "siding-after-2.webp"
+  alt = "Building exterior after siding replacement"
+
+  [[categories.images]]
+  src = "siding-after-3.webp"
+  alt = "Completed siding and fascia installation"
+
+[[categories]]
+slug = "fencing"
+name = "Fencing"
+
+  [[categories.images]]
+  src = "fencing-1.jpg"
+  alt = "Ranch fencing along property line"
+
+  [[categories.images]]
+  src = "fencing-2.webp"
+  alt = "Post and rail fence installation"
+
+  [[categories.images]]
+  src = "fencing-3.webp"
+  alt = "Log worm fence on Montana property"
+
+  [[categories.images]]
+  src = "fencing-4.jpg"
+  alt = "Privacy fence with custom gate"
+
+  [[categories.images]]
+  src = "fencing-6.jpg"
+  alt = "Agricultural fencing for livestock"
+
+  [[categories.images]]
+  src = "fencing-7.webp"
+  alt = "Completed fence line across pasture"
+
+  [[categories.images]]
+  src = "fencing-8.jpg"
+  alt = "Cedar fence panels installed"
+
+  [[categories.images]]
+  src = "fencing-9.webp"
+  alt = "Ranch fence with wire and rail"
+
+  [[categories.images]]
+  src = "fencing-10.jpg"
+  alt = "Fencing project completed in the Bitterroot"

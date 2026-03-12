@@ -119,6 +119,23 @@ type SupplierLink struct {
 	URL  string `toml:"url"`
 }
 
+// GalleryPageConfig represents the /gallery page
+type GalleryPageConfig struct {
+	SEO        SEOConfig      `toml:"seo"`
+	Categories []GalleryCategory `toml:"categories"`
+}
+
+type GalleryCategory struct {
+	Slug   string         `toml:"slug"`
+	Name   string         `toml:"name"`
+	Images []GalleryImage `toml:"images"`
+}
+
+type GalleryImage struct {
+	Src string `toml:"src"`
+	Alt string `toml:"alt"`
+}
+
 func Load(path string) (*SiteConfig, error) {
 	f, err := os.Open(path)
 	if err != nil {
@@ -144,6 +161,21 @@ func LoadServicePage(path string) (*ServicePageConfig, error) {
 	var page ServicePageConfig
 	if _, err := toml.NewDecoder(f).Decode(&page); err != nil {
 		return nil, fmt.Errorf("parsing service page config %s: %w", path, err)
+	}
+
+	return &page, nil
+}
+
+func LoadGalleryPage(path string) (*GalleryPageConfig, error) {
+	f, err := os.Open(path)
+	if err != nil {
+		return nil, fmt.Errorf("opening gallery config %s: %w", path, err)
+	}
+	defer f.Close()
+
+	var page GalleryPageConfig
+	if _, err := toml.NewDecoder(f).Decode(&page); err != nil {
+		return nil, fmt.Errorf("parsing gallery config %s: %w", path, err)
 	}
 
 	return &page, nil

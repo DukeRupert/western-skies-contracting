@@ -22,6 +22,13 @@ func main() {
 	}
 	fmt.Printf("Loaded: %s\n", cfg.Business.Name)
 
+	// Load gallery page
+	galleryPage, err := config.LoadGalleryPage("content/gallery.toml")
+	if err != nil {
+		log.Fatalf("Failed to load gallery page: %v", err)
+	}
+	fmt.Println("Loaded gallery page")
+
 	// Load service pages
 	servicePages := map[string]*config.ServicePageConfig{}
 	for _, slug := range []string{"roofing", "framing", "siding", "fencing"} {
@@ -52,6 +59,10 @@ func main() {
 
 	http.HandleFunc("/fencing-services", func(w http.ResponseWriter, r *http.Request) {
 		templates.ServicePage(*cfg, *servicePages["fencing"]).Render(r.Context(), w)
+	})
+
+	http.HandleFunc("/gallery", func(w http.ResponseWriter, r *http.Request) {
+		templates.Gallery(*cfg, *galleryPage).Render(r.Context(), w)
 	})
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {

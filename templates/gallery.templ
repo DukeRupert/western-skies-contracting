@@ -1,0 +1,112 @@
+package templates
+
+import "github.com/fireflymt/western-skies/internal/config"
+
+templ Gallery(cfg config.SiteConfig, page config.GalleryPageConfig) {
+	@Base(cfg, page.SEO.Title, page.SEO.Description) {
+		<section class="service-hero section section--dark dark">
+			<div class="section-inner">
+				<div class="section-eyebrow">Our Work</div>
+				<h1>Project Gallery</h1>
+				<p class="hero-lead" style="margin-top: 16px;">
+					Every project here was built by John, Matt, and the Western Skies crew. Browse by trade or scroll through the full gallery.
+				</p>
+			</div>
+		</section>
+		<div class="accent-rule"></div>
+		<section class="section has-grain">
+			<div class="section-inner">
+				<div class="gallery-filters">
+					<button class="gallery-filter active" data-filter="all">All</button>
+					for _, cat := range page.Categories {
+						<button class="gallery-filter" data-filter={ cat.Slug }>{ cat.Name }</button>
+					}
+				</div>
+				<div class="gallery-grid">
+					for _, cat := range page.Categories {
+						for _, img := range cat.Images {
+							<div class="gallery-item" data-category={ cat.Slug }>
+								<img
+									src={ "/static/images/" + img.Src }
+									alt={ img.Alt }
+									loading="lazy"
+									width="640"
+									height="480"
+									onclick="openLightbox(this)"
+								/>
+							</div>
+						}
+					}
+				</div>
+			</div>
+		</section>
+		<div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+			<button class="lightbox-close" onclick="closeLightbox(event)" aria-label="Close">&times;</button>
+			<button class="lightbox-prev" onclick="lightboxNav(event, -1)" aria-label="Previous">&lsaquo;</button>
+			<button class="lightbox-next" onclick="lightboxNav(event, 1)" aria-label="Next">&rsaquo;</button>
+			<div class="lightbox-content">
+				<img id="lightbox-img" src="" alt=""/>
+				<div id="lightbox-caption" class="lightbox-caption"></div>
+			</div>
+		</div>
+		<script>
+		{
+			const lb = document.getElementById('lightbox');
+			const lbImg = document.getElementById('lightbox-img');
+			const lbCap = document.getElementById('lightbox-caption');
+			let items = [];
+			let idx = 0;
+
+			function getVisibleItems() {
+				return Array.from(document.querySelectorAll('.gallery-item:not([style*="display: none"]) img'));
+			}
+
+			window.openLightbox = function(img) {
+				items = getVisibleItems();
+				idx = items.indexOf(img);
+				lbImg.src = img.src;
+				lbCap.textContent = img.alt;
+				lb.classList.add('active');
+				document.body.style.overflow = 'hidden';
+			};
+
+			window.closeLightbox = function(e) {
+				if (e.target === lb || e.target.classList.contains('lightbox-close')) {
+					lb.classList.remove('active');
+					document.body.style.overflow = '';
+				}
+			};
+
+			window.lightboxNav = function(e, dir) {
+				e.stopPropagation();
+				idx = (idx + dir + items.length) % items.length;
+				lbImg.src = items[idx].src;
+				lbCap.textContent = items[idx].alt;
+			};
+
+			document.addEventListener('keydown', function(e) {
+				if (!lb.classList.contains('active')) return;
+				if (e.key === 'Escape') { lb.classList.remove('active'); document.body.style.overflow = ''; }
+				if (e.key === 'ArrowLeft') window.lightboxNav(e, -1);
+				if (e.key === 'ArrowRight') window.lightboxNav(e, 1);
+			});
+
+			// Filter logic
+			document.querySelectorAll('.gallery-filter').forEach(function(btn) {
+				btn.addEventListener('click', function() {
+					document.querySelectorAll('.gallery-filter').forEach(function(b) { b.classList.remove('active'); });
+					btn.classList.add('active');
+					var filter = btn.getAttribute('data-filter');
+					document.querySelectorAll('.gallery-item').forEach(function(item) {
+						if (filter === 'all' || item.getAttribute('data-category') === filter) {
+							item.style.display = '';
+						} else {
+							item.style.display = 'none';
+						}
+					});
+				});
+			});
+		}
+		</script>
+	}
+}
