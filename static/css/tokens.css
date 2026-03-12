@@ -336,6 +336,11 @@ a {
   transition: transform 0.3s, opacity 0.3s;
 }
 
+/* Nav overlay (mobile) */
+.nav-overlay {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .nav-toggle {
     display: block;
@@ -350,12 +355,33 @@ a {
     background: var(--color-granite);
     flex-direction: column;
     padding: 24px var(--gutter);
-    gap: 20px;
+    gap: 4px;
     border-bottom: 2px solid var(--color-sunburst);
+    z-index: 101;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 12px 0;
+    min-height: 48px;
+    line-height: 24px;
   }
 
   .nav-links.active {
     display: flex;
+  }
+
+  .nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    top: var(--nav-height);
+    background: rgba(30, 33, 32, 0.5);
+    z-index: 99;
+  }
+
+  .nav-overlay.active {
+    display: block;
   }
 }
 

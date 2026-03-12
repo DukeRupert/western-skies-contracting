@@ -66,7 +66,7 @@ templ Base(cfg config.SiteConfig, title string, description string, path string)
 }
 
 templ Nav(cfg config.SiteConfig) {
-	<nav class="site-nav">
+	<nav class="site-nav" id="site-nav">
 		<div class="nav-inner">
 			<a href="/" class="nav-logo">
 				<img src="/static/images/Logo+-+Black-1920w.webp" alt={ cfg.Business.Name } width="44" height="44"/>
@@ -75,24 +75,54 @@ templ Nav(cfg config.SiteConfig) {
 					<span class="nav-logo-sub">Hamilton, Montana &middot; Est. 2018</span>
 				</div>
 			</a>
-			<button class="nav-toggle" aria-label="Open menu" onclick="this.nextElementSibling.classList.toggle('active')">
+			<button class="nav-toggle" aria-label="Open menu" id="nav-toggle">
 				<span></span>
 				<span></span>
 				<span></span>
 			</button>
-			<ul class="nav-links">
+			<ul class="nav-links" id="nav-links">
 				<li><a href="/roofing-services">Roofing</a></li>
 				<li><a href="/framing-services">Framing</a></li>
 				<li><a href="/siding-services">Siding</a></li>
 				<li><a href="/fencing-services">Fencing</a></li>
 				<li><a href="/gallery">Gallery</a></li>
-			<li><a href="/#about">About</a></li>
+				<li><a href="/#about">About</a></li>
 				<li><a href="/#testimonials">Testimonials</a></li>
 				<li><a href="/#contact">Contact</a></li>
 				<li><a href="tel:4065461018" class="nav-cta">Free Estimate</a></li>
 			</ul>
 		</div>
+		<div class="nav-overlay" id="nav-overlay"></div>
 	</nav>
+	<script>
+	{
+		const toggle = document.getElementById('nav-toggle');
+		const links = document.getElementById('nav-links');
+		const overlay = document.getElementById('nav-overlay');
+
+		function closeMenu() {
+			links.classList.remove('active');
+			overlay.classList.remove('active');
+			toggle.setAttribute('aria-expanded', 'false');
+		}
+
+		toggle.addEventListener('click', function() {
+			const open = links.classList.toggle('active');
+			overlay.classList.toggle('active', open);
+			toggle.setAttribute('aria-expanded', String(open));
+		});
+
+		overlay.addEventListener('click', closeMenu);
+
+		links.querySelectorAll('a').forEach(function(a) {
+			a.addEventListener('click', closeMenu);
+		});
+
+		document.addEventListener('keydown', function(e) {
+			if (e.key === 'Escape' && links.classList.contains('active')) closeMenu();
+		});
+	}
+	</script>
 }
 
 templ Footer(cfg config.SiteConfig) {
