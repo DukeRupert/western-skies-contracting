@@ -30,10 +30,9 @@ templ Base(cfg config.SiteConfig, title string, description string, path string)
 		if path == "/" {
 			<link rel="preload" as="image" href="/static/images/333338014_752212066181811_2060860814604542921_n-1920w.jpg" fetchpriority="high"/>
 		}
-		<link rel="preconnect" href="https://fonts.googleapis.com"/>
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Barlow:wght@300;400;500&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet"/>
 		<link rel="stylesheet" href="/static/css/tokens.css"/>
+		<link rel="preload" as="font" type="font/woff2" href="/static/fonts/cormorant-garamond-normal-latin.woff2" crossorigin/>
+		<link rel="preload" as="font" type="font/woff2" href="/static/fonts/barlow-300-latin.woff2" crossorigin/>
 		<script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous" defer></script>
 		<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 		<script type="application/ld+json">
