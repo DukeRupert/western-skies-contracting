@@ -10,9 +10,9 @@ templ Home(cfg config.SiteConfig) {
 		@HeroSection(cfg)
 		<div class="accent-rule"></div>
 		@AboutSection(cfg)
-		@FeaturesSection(cfg)
 		@ServicesSection(cfg)
 		@TestimonialsSection(cfg)
+		@PhotoBreak()
 		@ProjectsPreviewSection(cfg)
 		@ServiceAreaSection(cfg)
 		@ContactSection(cfg)
@@ -43,8 +43,8 @@ templ HeroSection(cfg config.SiteConfig) {
 					<span class="hero-stat-label">Years Combined Experience</span>
 				</div>
 				<div class="hero-stat">
-					<span class="hero-stat-value">2018</span>
-					<span class="hero-stat-label">Established</span>
+					<span class="hero-stat-value">2</span>
+					<span class="hero-stat-label">Owners on Every Job</span>
 				</div>
 				<div class="hero-stat">
 					<span class="hero-stat-value">4</span>
@@ -56,53 +56,36 @@ templ HeroSection(cfg config.SiteConfig) {
 }
 
 templ AboutSection(cfg config.SiteConfig) {
-	<section id="about" class="section has-grain">
-		<div class="section-inner">
-			<div class="about-grid">
-				<div class="about-text">
-					<div class="section-eyebrow">Who We Are</div>
-					<h2>
-						Owner-operated.
-						<em>Community rooted.</em>
-					</h2>
-					<p>
-						John Plocher was born and raised just outside Corvallis. He grew up working alongside his family, learning early that the quality of your work is your word. Matt Detweiler brings the same standard to every estimate and every job site. Between them, they've built homes, barns, shops, and fences across the Bitterroot and beyond.
-					</p>
-					<p>
-						We don't subcontract the work that matters. When you hire Western Skies, John and Matt are on the job.
-					</p>
-					<div class="scripture">
-						<blockquote>
-							"Whatever you do, work at it with all your heart, as working for the Lord."
-						</blockquote>
-						<cite>— Colossians 3:23</cite>
-					</div>
-				</div>
-				<div class="about-image">
-					<img src="/static/images/team.jpg" alt="The Western Skies Contracting crew" width="800" height="1000" loading="lazy"/>
-				</div>
+	<section id="about" class="about-bold">
+		<div class="about-bold-image">
+			<img src="/static/images/team.jpg" alt="The Western Skies Contracting crew" width="800" height="1000" loading="lazy"/>
+		</div>
+		<div class="about-bold-text">
+			<div class="section-eyebrow">Who We Are</div>
+			<h2>
+				Owner-operated.
+				<em>Community rooted.</em>
+			</h2>
+			<p>
+				John Plocher was born and raised just outside Corvallis. He grew up working alongside his family, learning early that the quality of your work is your word. Matt Detweiler brings the same standard to every estimate and every job site. Between them, they've built homes, barns, shops, and fences across the Bitterroot and beyond.
+			</p>
+			<p>
+				We don't subcontract the work that matters. When you hire Western Skies, John and Matt are on the job.
+			</p>
+			<div class="scripture-standalone">
+				<blockquote>
+					"Whatever you do, work at it with all your heart, as working for the Lord."
+				</blockquote>
+				<cite>— Colossians 3:23</cite>
 			</div>
 		</div>
 	</section>
 }
 
-templ FeaturesSection(cfg config.SiteConfig) {
-	<section class="section section--dark dark">
-		<div class="section-inner">
-			<div class="section-eyebrow">Why Choose Us</div>
-			<h2 style="max-width: 520px;">
-				Built different. On purpose.
-			</h2>
-			<div class="features-grid">
-				for _, f := range cfg.Features {
-					<div class="feature-card">
-						<h3>{ f.Label }</h3>
-						<p>{ f.Copy }</p>
-					</div>
-				}
-			</div>
-		</div>
-	</section>
+templ PhotoBreak() {
+	<div class="photo-break">
+		<img src="/static/images/barn_built.jpg" alt="Completed barn build in the Bitterroot Valley" width="1920" height="1080" loading="lazy"/>
+	</div>
 }
 
 templ ServicesSection(cfg config.SiteConfig) {
@@ -112,14 +95,15 @@ templ ServicesSection(cfg config.SiteConfig) {
 			<h2>Four trades. One crew.</h2>
 			<div class="services-grid">
 				for _, s := range cfg.Services {
-					<div class="service-card">
+					<a href={ templ.SafeURL("/" + s.Slug + "-services") } class="service-card">
 						<img src={ "/static/images/" + s.Image } alt={ s.Headline } width="800" height="500" loading="lazy"/>
 						<div class="service-card-overlay"></div>
 						<div class="service-card-content">
 							<h3>{ s.Name }</h3>
 							<p>{ s.Description }</p>
+							<span class="service-card-link">Learn more &rarr;</span>
 						</div>
-					</div>
+					</a>
 				}
 			</div>
 		</div>
@@ -153,7 +137,7 @@ templ ProjectsPreviewSection(cfg config.SiteConfig) {
 			<div class="projects-preview-grid">
 				for _, img := range cfg.GalleryPreview {
 					<div class="projects-preview-item">
-						<img src={ "/static/images/gallery/" + img.Src } alt={ img.Alt } width="600" height="450" loading="lazy"/>
+						<img src={ "/static/images/" + img.Src } alt={ img.Alt } width="600" height="450" loading="lazy"/>
 					</div>
 				}
 			</div>
@@ -165,11 +149,11 @@ templ ProjectsPreviewSection(cfg config.SiteConfig) {
 }
 
 templ ServiceAreaSection(cfg config.SiteConfig) {
-	<section class="section section--dark dark">
+	<section class="section section--dark section--compact dark">
 		<div class="section-inner">
 			<div class="section-eyebrow">Where We Work</div>
 			<h2>Serving the Bitterroot Valley and Beyond</h2>
-			<p style="margin-top: 16px; max-width: 580px;">{ cfg.ServiceArea.Description }</p>
+			<p class="service-area-desc">{ cfg.ServiceArea.Description }</p>
 			<div class="service-area-towns">
 				for _, town := range cfg.ServiceArea.Towns {
 					<span>{ town }</span>
@@ -180,11 +164,12 @@ templ ServiceAreaSection(cfg config.SiteConfig) {
 }
 
 templ ContactSection(cfg config.SiteConfig) {
-	<section id="contact" class="section has-grain">
+	<section id="contact" class="section section--contact has-grain">
+		<div class="accent-rule--top"></div>
 		<div class="section-inner">
 			<div class="section-eyebrow">Get in Touch</div>
-			<h2>Ready to build something that lasts?</h2>
-			<p style="margin-top: 16px; margin-bottom: 48px; max-width: 580px;">
+			<h2 class="contact-headline">Ready to build something that lasts?</h2>
+			<p class="contact-intro">
 				Call John or Matt directly. We'll talk through your project, give you an honest estimate, and tell you what we think — not just what you want to hear.
 			</p>
 			<div class="cta-grid">
@@ -205,7 +190,7 @@ templ ContactSection(cfg config.SiteConfig) {
 					<div class="contact-hours">
 						<div class="contact-detail-label">Hours</div>
 						<div class="contact-detail-value">{ cfg.Business.Hours.Weekdays }</div>
-						<div class="contact-detail-value" style="color: var(--color-muted-text);">Sunday: { cfg.Business.Hours.Sunday }</div>
+						<div class="contact-detail-value contact-detail-value--muted">Sunday: { cfg.Business.Hours.Sunday }</div>
 					</div>
 				</div>
 				<form class="contact-form" hx-post="/api/contact" hx-swap="outerHTML">

@@ -37,7 +37,7 @@ templ ServiceHero(page config.ServicePageConfig) {
 			<div class="hero-bg">
 				<img src={ "/static/images/" + page.Header.HeroImage } alt={ page.Header.H1 } width="1920" height="1080"/>
 			</div>
-			<div class="section-inner" style="position: relative; z-index: 1;">
+			<div class="section-inner">
 				<div class="section-eyebrow--light section-eyebrow">{ page.Header.Eyebrow }</div>
 				<h1>{ page.Header.H1 }</h1>
 			</div>
@@ -200,43 +200,22 @@ templ ServiceCTA(cfg config.SiteConfig, page config.ServicePageConfig) {
 		<div class="section-inner">
 			<div class="section-eyebrow">Get in Touch</div>
 			<h2>{ page.CTA.Heading }</h2>
-			<p style="margin-top: 16px; margin-bottom: 48px; max-width: 580px;">{ page.CTA.Copy }</p>
-			<div class="cta-grid">
-				<div>
-					for _, phone := range cfg.Phones {
-						<div class="contact-detail">
-							<div class="contact-detail-label" style="color: var(--color-sunburst);">{ phone.Label }</div>
-							<div class="contact-detail-value" style="color: var(--color-white);">
-								{ phone.Name } &mdash;
-								<a href={ templ.SafeURL("tel:" + strings.ReplaceAll(phone.Number, "-", "")) } style="color: var(--color-sunburst);">{ phone.Number }</a>
-							</div>
+			<p class="contact-intro" style="margin-top: 16px;">{ page.CTA.Copy }</p>
+			<div class="cta-compact-phones">
+				for _, phone := range cfg.Phones {
+					<div class="contact-detail">
+						<div class="contact-detail-label">{ phone.Label }</div>
+						<div class="contact-detail-value">
+							{ phone.Name } &mdash;
+							<a href={ templ.SafeURL("tel:" + strings.ReplaceAll(phone.Number, "-", "")) }>{ phone.Number }</a>
 						</div>
-					}
-					<div class="contact-hours" style="border-color: rgba(255,255,255,0.08);">
-						<div class="contact-detail-label" style="color: var(--color-sunburst);">Hours</div>
-						<div class="contact-detail-value" style="color: var(--color-white);">{ cfg.Business.Hours.Weekdays }</div>
 					</div>
-				</div>
-				<form class="contact-form" hx-post="/api/contact" hx-swap="outerHTML">
-					<div class="form-field">
-						<label for="svc-name" style="color: var(--color-sunburst);">Name</label>
-						<input type="text" id="svc-name" name="name" required/>
-					</div>
-					<div class="form-field">
-						<label for="svc-phone" style="color: var(--color-sunburst);">Phone</label>
-						<input type="tel" id="svc-phone" name="phone"/>
-					</div>
-					<div class="form-field">
-						<label for="svc-email" style="color: var(--color-sunburst);">Email</label>
-						<input type="email" id="svc-email" name="email"/>
-					</div>
-					<div class="form-field">
-						<label for="svc-message" style="color: var(--color-sunburst);">Tell us about your project</label>
-						<textarea id="svc-message" name="message" rows="5"></textarea>
-					</div>
-					<button type="submit" class="btn-primary btn-primary--light">{ page.CTA.Button }</button>
-				</form>
+				}
 			</div>
+			<a href={ templ.SafeURL("tel:" + strings.ReplaceAll(cfg.Phones[0].Number, "-", "")) } class="btn-primary btn-primary--light">{ page.CTA.Button }</a>
+			<p class="cta-compact-or">
+				Or <a href="/#contact">send us a message</a> from the contact form.
+			</p>
 		</div>
 	</section>
 }

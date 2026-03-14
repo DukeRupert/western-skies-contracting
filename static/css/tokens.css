@@ -12,6 +12,7 @@
   --color-white:      #FAFAF8;
   --color-body-text:  #3A3830;
   --color-muted-text: #7A7468;
+  --color-error:      #b45309;
 
   /* Typography */
   --font-display:    'Cormorant Garamond', Georgia, serif;
@@ -835,7 +836,17 @@ a {
   }
 }
 
-/* ── Service Area ── */
+/* ── Service Area (compact band) ── */
+
+.section--compact {
+  padding-top: clamp(36px, 4vw, 56px);
+  padding-bottom: clamp(36px, 4vw, 56px);
+}
+
+.service-area-desc {
+  margin-top: 16px;
+  max-width: 580px;
+}
 
 .service-area-towns {
   display: flex;
@@ -855,6 +866,36 @@ a {
 }
 
 /* ── Contact CTA ── */
+
+.section--contact {
+  padding-top: clamp(80px, 10vw, 144px);
+  padding-bottom: clamp(80px, 10vw, 144px);
+}
+
+.section--contact .accent-rule--top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--color-sunburst) 0%,
+    var(--color-sage) 55%,
+    transparent 100%
+  );
+}
+
+.contact-headline {
+  font-size: clamp(32px, 4.5vw, 52px);
+  max-width: 600px;
+}
+
+.contact-intro {
+  margin-top: 20px;
+  margin-bottom: 56px;
+  max-width: 580px;
+}
 
 .cta-grid {
   display: grid;
@@ -889,6 +930,10 @@ a {
 
 .contact-detail-value a:hover {
   color: var(--color-sunburst);
+}
+
+.contact-detail-value--muted {
+  color: var(--color-muted-text);
 }
 
 .contact-hours {
@@ -936,6 +981,7 @@ a {
 .form-field input:focus,
 .form-field textarea:focus {
   border-color: var(--color-granite);
+  box-shadow: 0 0 0 2px var(--color-sunburst);
 }
 
 .form-field textarea {
@@ -957,8 +1003,8 @@ a {
 }
 
 .form-message--error {
-  color: #b45309;
-  border-left: 3px solid #b45309;
+  color: var(--color-error, #b45309);
+  border-left: 3px solid var(--color-error, #b45309);
 }
 
 @media (max-width: 768px) {
@@ -1002,6 +1048,11 @@ a {
 .service-hero--photo h1 {
   color: var(--color-white);
   max-width: 720px;
+}
+
+.service-hero--photo .section-inner {
+  position: relative;
+  z-index: 1;
 }
 
 /* ── Detail Rows (alternating image + text) ── */
@@ -1435,6 +1486,172 @@ a {
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+/* ── About (Bold Layout) ── */
+
+.about-bold {
+  background: var(--color-white);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 80vh;
+}
+
+.about-bold-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-bold-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-bold-text {
+  padding: var(--section-y) clamp(40px, 5vw, 80px) var(--section-y) var(--gutter);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 600px;
+  margin-left: auto;
+}
+
+.about-bold-text h2 {
+  margin-bottom: 32px;
+}
+
+.about-bold-text h2 em {
+  font-style: italic;
+  display: block;
+}
+
+.about-bold-text p {
+  margin-bottom: 20px;
+}
+
+.scripture-standalone {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-concrete);
+}
+
+.scripture-standalone blockquote {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-granite);
+  line-height: 1.4;
+}
+
+.scripture-standalone cite {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: var(--text-small);
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted-text);
+  margin-top: 12px;
+}
+
+@media (max-width: 768px) {
+  .about-bold {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .about-bold-image {
+    position: relative;
+    aspect-ratio: 4 / 3;
+  }
+
+  .about-bold-text {
+    padding: var(--section-y) var(--gutter);
+    max-width: none;
+    margin-left: 0;
+  }
+}
+
+/* ── Photo Break ── */
+
+.photo-break {
+  position: relative;
+  height: clamp(360px, 50vh, 600px);
+  overflow: hidden;
+}
+
+.photo-break img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 60%;
+}
+
+/* ── Compact CTA ── */
+
+.cta-compact-phones {
+  display: flex;
+  gap: clamp(32px, 4vw, 64px);
+  margin-top: 32px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.cta-compact-or {
+  font-family: var(--font-ui);
+  font-size: var(--text-small);
+  color: rgba(255,255,255,0.45);
+  margin-top: 20px;
+}
+
+.cta-compact-or a {
+  color: var(--color-concrete);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+
+.cta-compact-or a:hover {
+  color: var(--color-sunburst);
+}
+
+/* ── Dark Section Overrides ── */
+
+.section--dark .contact-detail-label {
+  color: var(--color-sunburst);
+}
+
+.section--dark .contact-detail-value {
+  color: var(--color-white);
+}
+
+.section--dark .contact-detail-value a {
+  color: var(--color-sunburst);
+}
+
+.section--dark .form-field label {
+  color: var(--color-sunburst);
+}
+
+.section--dark .contact-hours {
+  border-color: rgba(255,255,255,0.08);
+}
+
+/* ── Focus Visible ── */
+
+.btn-primary:focus-visible,
+.btn-ghost:focus-visible,
+.nav-links a:focus-visible,
+.nav-cta:focus-visible,
+.gallery-filter:focus-visible,
+.service-card:focus-visible {
+  outline: 2px solid var(--color-sunburst);
+  outline-offset: 2px;
 }
 
 /* ── Lightbox ── */

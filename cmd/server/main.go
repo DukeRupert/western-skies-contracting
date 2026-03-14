@@ -108,6 +108,10 @@ func main() {
 		templates.Home(*cfg).Render(r.Context(), w)
 	})
 
-	fmt.Println("Serving on :8080")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+	fmt.Printf("Serving on :%s\n", port)
+	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
