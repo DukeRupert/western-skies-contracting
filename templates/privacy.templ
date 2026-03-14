@@ -4,8 +4,8 @@ import "github.com/fireflymt/western-skies/internal/config"
 
 templ Privacy(cfg config.SiteConfig) {
 	@Base(cfg, "Privacy | " + cfg.Business.Name, "How we handle your data. Short version: we respect it.", "/privacy") {
-		<section class="section has-grain" style="padding-top: calc(var(--nav-height) + var(--section-y));">
-			<div class="section-inner" style="max-width: 680px;">
+		<section class="section has-grain interior-hero">
+			<div class="section-inner prose-narrow">
 				<div class="section-eyebrow">Privacy</div>
 				<h1>How we handle your data</h1>
 				<div class="privacy-content">

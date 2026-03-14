@@ -1,16 +1,38 @@
 package templates
 
-import "github.com/fireflymt/western-skies/internal/config"
+import (
+	"github.com/fireflymt/western-skies/internal/config"
+	"strings"
+)
 
 templ NotFound(cfg config.SiteConfig) {
 	@Base(cfg, "Page Not Found | " + cfg.Business.Name, "", "") {
-		<section class="section has-grain" style="padding-top: calc(var(--nav-height) + var(--section-y)); min-height: 60vh; display: flex; align-items: center;">
+		<section class="section has-grain notfound">
 			<div class="section-inner">
+				<div class="section-eyebrow">Page Not Found</div>
 				<h1>That page doesn't exist.</h1>
-				<p style="margin-top: 16px; max-width: 480px;">
-					You can head back to the <a href="/" style="color: var(--color-granite); text-decoration: underline;">home page</a> or call us directly at
-					<a href="tel:4065461018" style="color: var(--color-granite); text-decoration: underline;">406-546-1018</a>.
+				<p class="notfound-body">
+					No worries — here's where you probably meant to go.
 				</p>
+				<div class="notfound-phone">
+					for _, phone := range cfg.Phones {
+						<a href={ templ.SafeURL("tel:" + strings.ReplaceAll(phone.Number, "-", "")) } class="notfound-phone-link">
+							<span class="notfound-phone-label">{ phone.Label }</span>
+							<span class="notfound-phone-number">{ phone.Number }</span>
+						</a>
+					}
+				</div>
+				<div class="notfound-actions">
+					<a href="/#contact" class="btn-primary">Get a Free Estimate</a>
+					<a href="/" class="btn-ghost">Back to Home</a>
+				</div>
+				<nav class="notfound-services">
+					<span class="notfound-services-label">Our services</span>
+					<a href="/roofing-services">Roofing</a>
+					<a href="/framing-services">Framing</a>
+					<a href="/siding-services">Siding</a>
+					<a href="/fencing-services">Fencing</a>
+				</nav>
 			</div>
 		</section>
 	}

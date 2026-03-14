@@ -1660,6 +1660,122 @@ a {
   border-color: rgba(255,255,255,0.08);
 }
 
+/* ── Interior Page Hero ── */
+
+.interior-hero {
+  padding-top: calc(var(--nav-height) + var(--section-y));
+}
+
+.interior-hero-lead {
+  margin-top: 16px;
+}
+
+/* ── Prose Wrapper ── */
+
+.prose-narrow {
+  max-width: 680px;
+}
+
+/* ── 404 ── */
+
+.notfound {
+  padding-top: calc(var(--nav-height) + var(--section-y));
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+}
+
+.notfound-body {
+  margin-top: 16px;
+  max-width: 480px;
+  font-size: var(--text-body-lg);
+  color: var(--color-muted-text);
+}
+
+.notfound-phone {
+  display: flex;
+  gap: clamp(24px, 3vw, 48px);
+  flex-wrap: wrap;
+  margin-top: 36px;
+}
+
+.notfound-phone-link {
+  display: flex;
+  flex-direction: column;
+  transition: color 0.2s;
+}
+
+.notfound-phone-link:hover {
+  color: var(--color-sunburst);
+}
+
+.notfound-phone-label {
+  font-family: var(--font-ui);
+  font-size: var(--text-caption);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-muted-text);
+}
+
+.notfound-phone-number {
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  font-weight: 500;
+  color: var(--color-ink);
+  line-height: 1.4;
+}
+
+.notfound-phone-link:hover .notfound-phone-number {
+  color: var(--color-sunburst);
+}
+
+.notfound-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.notfound-services {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 48px;
+  padding-top: 28px;
+  border-top: 1px solid var(--color-concrete);
+}
+
+.notfound-services-label {
+  font-family: var(--font-ui);
+  font-size: var(--text-caption);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-muted-text);
+}
+
+.notfound-services a {
+  font-family: var(--font-ui);
+  font-size: var(--text-btn);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-granite);
+  transition: color 0.2s;
+}
+
+.notfound-services a:hover {
+  color: var(--color-sunburst);
+}
+
+/* ── Utility ── */
+
+.mt-section-btn {
+  margin-top: 40px;
+}
+
 /* ── Focus Visible ── */
 
 .btn-primary:focus-visible,

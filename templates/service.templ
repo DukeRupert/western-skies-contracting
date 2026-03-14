@@ -181,6 +181,7 @@ templ ServiceTestimonials(page config.ServicePageConfig) {
 	<section class="section section--white">
 		<div class="section-inner">
 			<div class="section-eyebrow">What Neighbors Say</div>
+			<h2>Trusted across the Bitterroot.</h2>
 			<div class="testimonials-grid">
 				for _, t := range page.Testimonials {
 					<div class="testimonial-card">
@@ -200,7 +201,7 @@ templ ServiceCTA(cfg config.SiteConfig, page config.ServicePageConfig) {
 		<div class="section-inner">
 			<div class="section-eyebrow">Get in Touch</div>
 			<h2>{ page.CTA.Heading }</h2>
-			<p class="contact-intro" style="margin-top: 16px;">{ page.CTA.Copy }</p>
+			<p class="contact-intro interior-hero-lead">{ page.CTA.Copy }</p>
 			<div class="cta-compact-phones">
 				for _, phone := range cfg.Phones {
 					<div class="contact-detail">

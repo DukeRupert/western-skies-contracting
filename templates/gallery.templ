@@ -4,16 +4,15 @@ import "github.com/fireflymt/western-skies/internal/config"
 
 templ Gallery(cfg config.SiteConfig, page config.GalleryPageConfig) {
 	@Base(cfg, page.SEO.Title, page.SEO.Description, "/gallery") {
-		<section class="service-hero section section--dark dark">
+		<section class="section section--dark interior-hero dark">
 			<div class="section-inner">
 				<div class="section-eyebrow">Our Work</div>
 				<h1>Project Gallery</h1>
-				<p class="hero-lead" style="margin-top: 16px;">
+				<p class="hero-lead interior-hero-lead">
 					Every project here was built by John, Matt, and the Western Skies crew. Browse by trade or scroll through the full gallery.
 				</p>
 			</div>
 		</section>
-		<div class="accent-rule"></div>
 		<section class="section has-grain">
 			<div class="section-inner">
 				<div class="gallery-filters">
