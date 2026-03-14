@@ -137,7 +137,7 @@ templ ProjectsPreviewSection(cfg config.SiteConfig) {
 			<div class="projects-preview-grid">
 				for _, img := range cfg.GalleryPreview {
 					<div class="projects-preview-item">
-						<img src={ "/static/images/" + img.Src } alt={ img.Alt } width="600" height="450" loading="lazy"/>
+						<img src={ "/static/images/" + img.Src } alt={ img.Alt } width="600" height="450" loading="lazy" onclick="openHomeLightbox(this)"/>
 					</div>
 				}
 			</div>
@@ -145,6 +145,68 @@ templ ProjectsPreviewSection(cfg config.SiteConfig) {
 				<a href="/gallery" class="btn-primary">View Full Gallery</a>
 			</div>
 		</div>
+		<div id="home-lightbox" class="lightbox" onclick="closeHomeLightbox(event)">
+			<button class="lightbox-close" onclick="closeHomeLightbox(event)" aria-label="Close">&times;</button>
+			<button class="lightbox-prev" onclick="homeLightboxNav(event, -1)" aria-label="Previous">&lsaquo;</button>
+			<button class="lightbox-next" onclick="homeLightboxNav(event, 1)" aria-label="Next">&rsaquo;</button>
+			<div class="lightbox-content">
+				<img id="home-lightbox-img" src="" alt=""/>
+				<div id="home-lightbox-caption" class="lightbox-caption"></div>
+			</div>
+		</div>
+		<script>
+		{
+			var previewObserver = new IntersectionObserver(function(entries) {
+				entries.forEach(function(entry) {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('visible');
+						previewObserver.unobserve(entry.target);
+					}
+				});
+			}, { threshold: 0.1 });
+
+			document.querySelectorAll('.projects-preview-item').forEach(function(item, i) {
+				item.style.transitionDelay = i * 80 + 'ms';
+				previewObserver.observe(item);
+			});
+
+			var hlb = document.getElementById('home-lightbox');
+			var hlbImg = document.getElementById('home-lightbox-img');
+			var hlbCap = document.getElementById('home-lightbox-caption');
+			var hlbItems = [];
+			var hlbIdx = 0;
+
+			window.openHomeLightbox = function(img) {
+				hlbItems = Array.from(document.querySelectorAll('.projects-preview-item img'));
+				hlbIdx = hlbItems.indexOf(img);
+				hlbImg.src = img.src;
+				hlbCap.textContent = img.alt;
+				hlb.classList.add('active');
+				document.body.style.overflow = 'hidden';
+			};
+
+			window.closeHomeLightbox = function(e) {
+				if (e.target === hlb || e.target.classList.contains('lightbox-close')) {
+					hlb.classList.remove('active');
+					document.body.style.overflow = '';
+				}
+			};
+
+			window.homeLightboxNav = function(e, dir) {
+				e.stopPropagation();
+				hlbIdx = (hlbIdx + dir + hlbItems.length) % hlbItems.length;
+				hlbImg.src = hlbItems[hlbIdx].src;
+				hlbCap.textContent = hlbItems[hlbIdx].alt;
+			};
+
+			document.addEventListener('keydown', function(e) {
+				if (!hlb.classList.contains('active')) return;
+				if (e.key === 'Escape') { hlb.classList.remove('active'); document.body.style.overflow = ''; }
+				if (e.key === 'ArrowLeft') window.homeLightboxNav(e, -1);
+				if (e.key === 'ArrowRight') window.homeLightboxNav(e, 1);
+			});
+		}
+		</script>
 	</section>
 }
 

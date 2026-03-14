@@ -817,6 +817,15 @@ a {
 
 .projects-preview-item {
   overflow: hidden;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+              transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.projects-preview-item.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .projects-preview-item img {
@@ -1469,6 +1478,15 @@ a {
 .gallery-item {
   overflow: hidden;
   cursor: pointer;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+              transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.gallery-item.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .gallery-item img {
@@ -1657,17 +1675,22 @@ a {
 /* ── Lightbox ── */
 
 .lightbox {
-  display: none;
   position: fixed;
   inset: 0;
   z-index: 200;
   background: rgba(30, 33, 32, 0.95);
+  display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+              visibility 0.3s;
 }
 
 .lightbox.active {
-  display: flex;
+  opacity: 1;
+  visibility: visible;
 }
 
 .lightbox-content {
@@ -1676,6 +1699,12 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  transform: scale(0.96);
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.lightbox.active .lightbox-content {
+  transform: scale(1);
 }
 
 .lightbox-content img {
