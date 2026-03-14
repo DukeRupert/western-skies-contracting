@@ -22,7 +22,7 @@ templ Home(cfg config.SiteConfig) {
 templ HeroSection(cfg config.SiteConfig) {
 	<section class="hero">
 		<div class="hero-bg">
-			<img src="/static/images/333338014_752212066181811_2060860814604542921_n-1920w.jpg" alt="Montana barn under dramatic Bitterroot Valley sky" width="1920" height="1280"/>
+			<img src="/static/images/333338014_752212066181811_2060860814604542921_n-1920w.jpg" alt="Montana barn under dramatic Bitterroot Valley sky" width="1920" height="1280" fetchpriority="high"/>
 		</div>
 		<div class="hero-content">
 			<div class="section-eyebrow--light section-eyebrow">Bitterroot Valley &middot; Montana</div>
@@ -58,7 +58,7 @@ templ HeroSection(cfg config.SiteConfig) {
 templ AboutSection(cfg config.SiteConfig) {
 	<section id="about" class="about-bold">
 		<div class="about-bold-image">
-			<img src="/static/images/team.jpg" alt="The Western Skies Contracting crew" width="800" height="1000" loading="lazy"/>
+			<img src="/static/images/team.jpg" alt="The Western Skies Contracting crew" width="800" height="1000" loading="lazy" decoding="async"/>
 		</div>
 		<div class="about-bold-text">
 			<div class="section-eyebrow">Who We Are</div>
@@ -84,7 +84,7 @@ templ AboutSection(cfg config.SiteConfig) {
 
 templ PhotoBreak() {
 	<div class="photo-break">
-		<img src="/static/images/barn_built.jpg" alt="Completed barn build in the Bitterroot Valley" width="1920" height="1080" loading="lazy"/>
+		<img src="/static/images/barn_built.jpg" alt="Completed barn build in the Bitterroot Valley" width="1920" height="1080" loading="lazy" decoding="async"/>
 	</div>
 }
 
@@ -96,7 +96,7 @@ templ ServicesSection(cfg config.SiteConfig) {
 			<div class="services-grid">
 				for _, s := range cfg.Services {
 					<a href={ templ.SafeURL("/" + s.Slug + "-services") } class="service-card">
-						<img src={ "/static/images/" + s.Image } alt={ s.Headline } width="800" height="500" loading="lazy"/>
+						<img src={ "/static/images/" + s.Image } alt={ s.Headline } width="800" height="500" loading="lazy" decoding="async"/>
 						<div class="service-card-overlay"></div>
 						<div class="service-card-content">
 							<h3>{ s.Name }</h3>
@@ -137,7 +137,7 @@ templ ProjectsPreviewSection(cfg config.SiteConfig) {
 			<div class="projects-preview-grid">
 				for _, img := range cfg.GalleryPreview {
 					<div class="projects-preview-item">
-						<img src={ "/static/images/" + img.Src } alt={ img.Alt } width="600" height="450" loading="lazy" onclick="openHomeLightbox(this)"/>
+						<img src={ "/static/images/" + img.Src } alt={ img.Alt } width="600" height="450" loading="lazy" decoding="async" onclick="openHomeLightbox(this)"/>
 					</div>
 				}
 			</div>

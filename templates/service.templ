@@ -35,7 +35,7 @@ templ ServiceHero(page config.ServicePageConfig) {
 	if page.Header.HeroImage != "" {
 		<section class="service-hero service-hero--photo">
 			<div class="hero-bg">
-				<img src={ "/static/images/" + page.Header.HeroImage } alt={ page.Header.H1 } width="1920" height="1080"/>
+				<img src={ "/static/images/" + page.Header.HeroImage } alt={ page.Header.H1 } width="1920" height="1080" fetchpriority="high"/>
 			</div>
 			<div class="section-inner">
 				<div class="section-eyebrow--light section-eyebrow">{ page.Header.Eyebrow }</div>
@@ -83,7 +83,7 @@ templ ServiceDetails(page config.ServicePageConfig) {
 									}
 								</div>
 								<div class="detail-row-image">
-									<img src={ "/static/images/" + s.Image } alt={ s.Name } width="640" height="400" loading="lazy"/>
+									<img src={ "/static/images/" + s.Image } alt={ s.Name } width="640" height="400" loading="lazy" decoding="async"/>
 								</div>
 							</div>
 						} else {
@@ -100,7 +100,7 @@ templ ServiceDetails(page config.ServicePageConfig) {
 									}
 								</div>
 								<div class="detail-row-image">
-									<img src={ "/static/images/" + s.Image } alt={ s.Name } width="640" height="400" loading="lazy"/>
+									<img src={ "/static/images/" + s.Image } alt={ s.Name } width="640" height="400" loading="lazy" decoding="async"/>
 								</div>
 							</div>
 						}
@@ -133,7 +133,7 @@ templ ServiceMaterials(page config.ServicePageConfig) {
 					<div class="material-card">
 						if m.Image != "" {
 							<div class="material-card-image">
-								<img src={ "/static/images/" + m.Image } alt={ m.Name } width="480" height="320" loading="lazy"/>
+								<img src={ "/static/images/" + m.Image } alt={ m.Name } width="480" height="320" loading="lazy" decoding="async"/>
 							</div>
 						}
 						<h3>{ m.Name }</h3>
@@ -164,7 +164,7 @@ templ ServiceNote(page config.ServicePageConfig) {
 						<p>{ page.Note.Copy }</p>
 					</div>
 					<div class="detail-row-image">
-						<img src={ "/static/images/" + page.Note.Image } alt={ page.Note.Heading } width="640" height="400" loading="lazy"/>
+						<img src={ "/static/images/" + page.Note.Image } alt={ page.Note.Heading } width="640" height="400" loading="lazy" decoding="async"/>
 					</div>
 				</div>
 			} else {
@@ -201,7 +201,7 @@ templ ServiceCTA(cfg config.SiteConfig, page config.ServicePageConfig) {
 		<div class="section-inner">
 			<div class="section-eyebrow">Get in Touch</div>
 			<h2>{ page.CTA.Heading }</h2>
-			<p class="contact-intro interior-hero-lead">{ page.CTA.Copy }</p>
+			<p class="contact-intro">{ page.CTA.Copy }</p>
 			<div class="cta-compact-phones">
 				for _, phone := range cfg.Phones {
 					<div class="contact-detail">

@@ -29,6 +29,7 @@ templ Gallery(cfg config.SiteConfig, page config.GalleryPageConfig) {
 									src={ "/static/images/" + img.Src }
 									alt={ img.Alt }
 									loading="lazy"
+									decoding="async"
 									width="640"
 									height="480"
 									onclick="openLightbox(this)"

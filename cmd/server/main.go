@@ -5,11 +5,31 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 
 	"github.com/fireflymt/western-skies/internal/config"
 	"github.com/fireflymt/western-skies/internal/contact"
 	"github.com/fireflymt/western-skies/templates"
 )
+
+// cacheStatic wraps a file server with Cache-Control headers.
+// Images and fonts get long-lived caches; CSS/JS get shorter caches.
+func cacheStatic(h http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		p := r.URL.Path
+		switch {
+		case strings.HasSuffix(p, ".jpg"), strings.HasSuffix(p, ".jpeg"),
+			strings.HasSuffix(p, ".png"), strings.HasSuffix(p, ".webp"),
+			strings.HasSuffix(p, ".ico"), strings.HasSuffix(p, ".woff2"):
+			w.Header().Set("Cache-Control", "public, max-age=31536000, immutable")
+		case strings.HasSuffix(p, ".css"), strings.HasSuffix(p, ".js"):
+			w.Header().Set("Cache-Control", "public, max-age=86400")
+		default:
+			w.Header().Set("Cache-Control", "public, max-age=3600")
+		}
+		h.ServeHTTP(w, r)
+	})
+}
 
 func main() {
 	path := os.Getenv("SITE_CONFIG")
@@ -49,9 +69,9 @@ func main() {
 		TurnstileSecret: os.Getenv("TURNSTILE_SECRET_KEY"),
 	}
 
-	// Static files
+	// Static files with cache headers
 	fs := http.FileServer(http.Dir("static"))
-	http.Handle("/static/", http.StripPrefix("/static/", fs))
+	http.Handle("/static/", http.StripPrefix("/static/", cacheStatic(fs)))
 
 	// Routes
 	http.HandleFunc("/roofing-services", func(w http.ResponseWriter, r *http.Request) {
